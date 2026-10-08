@@ -1,0 +1,5 @@
+:root { --display: 'Trebuchet MS', 'Segoe UI', sans-serif; --mono: 'Cascadia Code', Consolas, monospace; font-family: var(--mono); color: #9ba3b1; background: #0d1016; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: radial-gradient(circle at 73% -20%, #242b36 0, #11151d 35%, #0d1016 72%); }
+button, input { font: inherit; }
+button:focus-visible, input:focus-visible { outline: 2px solid #d84f43; outline-offset: 2px; }

@@ -1,0 +1,1018 @@
+[
+  {
+    "nid": 14571414,
+    "dt": [1791450000000, 1795057199000 ],
+    "a": [
+      { "id": "rhianna-and-luciella" },
+      { "id": "doctors-bag" },
+      { "id": "scroll-of-shadows" },
+      { "id": "renewed-will" },
+      { "id": "elhyas-knife" },
+      { "id": "eternus" },
+      { "id": "hell-cutter" },
+      { "id": "hilag-lance" }
+    ]
+  },
+  {
+    "nid": 14428517,
+    "dt": [1787814000000, 1791428399000 ],
+    "a": [
+      { "id": "black-hand-of-the-goddess" },
+      { "id": "sword-of-judgment" },
+      { "id": "tyrants-descent" },
+      { "id": "wings-of-light-and-shadow" },
+      { "id": "siraren" },
+      { "id": "sashe-ithanes" },
+      { "id": "silver-rain" },
+      { "id": "wondrous-potion-vial" }
+    ]
+  },
+  {
+    "nid": 14428517,
+    "dt": [1787814000000, 1791428399000 ],
+    "a": [
+      { "id": "black-hand-of-the-goddess" },
+      { "id": "sword-of-judgment" },
+      { "id": "tyrants-descent" },
+      { "id": "wings-of-light-and-shadow" },
+      { "id": "siraren" },
+      { "id": "sashe-ithanes" },
+      { "id": "silver-rain" },
+      { "id": "wondrous-potion-vial" }
+    ]
+  },
+  {
+    "nid": 13984282,
+    "dt": [1784170800000, 1787813999000 ],
+    "a": [
+      { "id": "golden-rose" },
+      { "id": "ancient-dragons-legacy" },
+      { "id": "dark-blood-keeper" },
+      { "id": "proof-of-love" },
+      { "id": "els-fist" },
+      { "id": "adamant-shield" },
+      { "id": "kaladra" },
+      { "id": "eternus" }
+    ]
+  },
+  {
+    "nid": 13526329,
+    "dt": [1780542000000, 1784170799000 ],
+    "a": [
+      { "id": "sword-of-winter-shadow" },
+      { "id": "homage-to-tarman" },
+      { "id": "eticas-scepter" },
+      { "id": "dux-noctis" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "eternus" },
+      { "id": "sepulcrum" },
+      { "id": "aurius" }
+    ]
+  },
+  {
+    "nid": 13101810,
+    "dt": [1776913200000, 1780541999000 ],
+    "a": [
+      { "id": "spirits-breath" },
+      { "id": "airtosurface-missile-misha" },
+      { "id": "border-coin" },
+      { "id": "elbris-ritual-sword" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "andres-crossbow" },
+      { "id": "dust-devil" },
+      { "id": "magarahas-tome" }
+    ]
+  },
+  {
+    "nid": 12378124,
+    "dt": [1773284400000, 1776913199000 ],
+    "a": [
+      { "id": "merciless-glutton" },
+      { "id": "crown-of-glory" },
+      { "id": "alabastron" },
+      { "id": "shimadra-staff" },
+      { "id": "strak-gauntlet" },
+      { "id": "steadfast-gatekeeper" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "rosa-hargana" }
+    ]
+  },
+  {
+    "nid": 11931896,
+    "dt": [1769655600000, 1773284399000 ],
+    "a": [
+      { "id": "manica-of-control" },
+      { "id": "touch-of-rekos" },
+      { "id": "time-matter" },
+      { "id": "spatiotemporal-fan" },
+      { "id": "elyhas-knife" },
+      { "id": "wondrous-potion-vial" },
+      { "id": "hell-cutter" },
+      { "id": "hilag-lance" }
+    ]
+  },
+  {
+    "nid": 11532347,
+    "dt": [1766026800000, 1769655599000 ],
+    "a": [
+      { "id": "spear-of-a-new-dawn" },
+      { "id": "abyssal-crown" },
+      { "id": "song-of-stars" },
+      { "id": "sword-of-autumn-eclipse" },
+      { "id": "siraren" },
+      { "id": "infinity-basket" },
+      { "id": "elyhas-knife" },
+      { "id": "wondrous-potion-vial" }
+    ]
+  },
+  {
+    "nid": 11154842,
+    "dt": [1761793200000, 1766026799000 ],
+    "a": [
+      { "id": "a-little-queens-huge-crown" },
+      { "id": "sphere-of-sadism" },
+      { "id": "shepherd-of-the-hollow" },
+      { "id": "stella-harpa" },
+      { "id": "els-fist" },
+      { "id": "adamant-shield" },
+      { "id": "kaladra" },
+      { "id": "sashe-ithanes" }
+    ]
+  },
+  {
+    "nid": 11066469,
+    "dt": [1758164400000, 1761793199000 ],
+    "a": [
+      { "id": "umbral-keystones" },
+      { "id": "glowings-21" },
+      { "id": "spear-of-purification" },
+      { "id": "broken-will-of-the-priest" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "andres-crossbow" },
+      { "id": "silver-rain" },
+      { "id": "waters-origin" }
+    ]
+  },
+  {
+    "nid": 10962176,
+    "dt": [1754535600000, 1758164399000 ],
+    "a": [
+      { "id": "beguiling-wings" },
+      { "id": "birdseye-view" },
+      { "id": "dignus-orb" },
+      { "id": "elegiac-candle" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "eternus" },
+      { "id": "sepulcrum" },
+      { "id": "aurius" }
+    ]
+  },
+  {
+    "nid": 10814440,
+    "dt": [1750906800000, 1754535599000 ],
+    "a": [
+      { "id": "creation-destruction" },
+      { "id": "justice-for-all" },
+      { "id": "wind-rider" },
+      { "id": "idols-cheer" },
+      { "id": "strak-gauntlet" },
+      { "id": "steadfast-gatekeeper" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "andres-crossbow" }
+    ]
+  },
+  {
+    "nid": 10733343,
+    "dt": [1747278000000, 1750906799000 ],
+    "a": [
+      { "id": "secret-art-storm-sword" },
+      { "id": "celestine" },
+      { "id": "last-teatime" },
+      { "id": "unseen-observer" },
+      { "id": "silver-rain" },
+      { "id": "magarahas-tome" },
+      { "id": "sepulcrum" },
+      { "id": "hilag-lance" }
+    ]
+  },
+  {
+    "nid": 10672575,
+    "dt": [1743649200000, 1747277999000 ],
+    "a": [
+      { "id": "twilight-calamity" },
+      { "id": "an-offer-you-cant-refuse" },
+      { "id": "durandal" },
+      { "id": "holy-sacrifice" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "eternus" }
+    ]
+  },
+  {
+    "nid": 10571489,
+    "dt": [1736391600000, 1740020399000 ],
+    "a": [
+      { "id": "doubleedged-decrescent" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "bloody-rose" },
+      { "id": "sphere-of-inferno" },
+      { "id": "dust-devil" },
+      { "id": "waters-origin" },
+      { "id": "els-fist" },
+      { "id": "aurius" }
+    ]
+  },
+  {
+    "nid": 10618573,
+    "dt": [1740020400000, 1743649199000 ],
+    "a": [
+      { "id": "uberiuss-tooth" },
+      { "id": "noble-oath" },
+      { "id": "violet-talisman" },
+      { "id": "sacred-tree-branch" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" }
+    ]
+  },
+  {
+    "nid": 10523164,
+    "dt": [1732762800000, 1736391599000 ],
+    "a": [
+      { "id": "knowledge-seed" },
+      { "id": "bloodstone" },
+      { "id": "sigurd-scythe" },
+      { "id": "rise-of-a-monarch" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "sashe-ithanes" },
+      { "id": "elyhas-knife" },
+      { "id": "wondrous-potion-vial" }
+    ]
+  },
+  {
+    "nid": 10491522,
+    "dt": [1729134000000, 1732762799000 ],
+    "a": [
+      { "id": "indestructible-gaiters" },
+      { "id": "bastion-of-perlutia" },
+      { "id": "alexas-basket" },
+      { "id": "doctors-bag" },
+      { "id": "strak-gauntlet" },
+      { "id": "steadfast-gatekeeper" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "andres-crossbow" }
+    ]
+  },
+  {
+    "nid": 10450714,
+    "dt": [1725505200000, 1729133999000 ],
+    "a": [
+      { "id": "goblet-of-oath" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "black-hand-of-the-goddess" },
+      { "id": "iron-fan" },
+      { "id": "silver-rain" },
+      { "id": "magarahas-tome" },
+      { "id": "sepulcrum" },
+      { "id": "hilag-lance" }
+    ]
+  },
+  {
+    "nid": 10343269,
+    "dt": [1721876400000, 1725505199000 ],
+    "a": [
+      { "id": "eticas-scepter" },
+      { "id": "dux-noctis" },
+      { "id": "pure-white-trust" },
+      { "id": "noble-oath" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "eternus" }
+    ]
+  },
+  {
+    "nid": 10222558,
+    "dt": [1718247600000, 1721876399000 ],
+    "a": [
+      { "id": "snow-crystal" },
+      { "id": "wings-of-light-and-shadow" },
+      { "id": "wind-rider" },
+      { "id": "touch-of-rekos" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" }
+    ]
+  },
+  {
+    "nid": 10138052,
+    "dt": [1714618800000, 1718247599000 ],
+    "a": [
+      { "id": "sword-of-summer-twilight" },
+      { "id": "celestine" },
+      { "id": "scroll-of-shadows" },
+      { "id": "sword-of-judgment" },
+      { "id": "dust-devil" },
+      { "id": "waters-origin" },
+      { "id": "els-fist" },
+      { "id": "sashe-ithanes" }
+    ]
+  },
+  {
+    "nid": 10015697,
+    "dt": [1710990000000, 1714618799000 ],
+    "a": [
+      { "id": "abyssal-crown" },
+      { "id": "song-of-stars" },
+      { "id": "uberiuss-tooth" },
+      { "id": "sphere-of-sadism" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "andres-crossbow" },
+      { "id": "elyhas-knife" },
+      { "id": "wondrous-potion-vial" }
+    ]
+  },
+  {
+    "nid": 10015697,
+    "dt": [1707361200000, 1710989999000 ],
+    "a": [
+      { "id": "circus-fantasia" },
+      { "id": "elbris-ritual-sword" },
+      { "id": "alexas-basket" },
+      { "id": "stella-harpa" },
+      { "id": "strak-gauntlet" },
+      { "id": "aurius" },
+      { "id": "magarahas-tome" },
+      { "id": "rosa-hargana" }
+    ]
+  },
+  {
+    "nid": 9937594,
+    "dt": [1703732400000, 1707361199000 ],
+    "a": [
+      { "id": "rhianna-luciella" },
+      { "id": "shimadra-staff" },
+      { "id": "crimson-moon-of-nightmares" },
+      { "id": "bloodstone" },
+      { "id": "silver-rain" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "sepulcrum" },
+      { "id": "steadfast-gatekeeper" }
+    ]
+  },
+  {
+    "nid": 9866289,
+    "dt": [1700103600000, 1703732399000 ],
+    "a": [
+      { "id": "spirits-breath" },
+      { "id": "airtosurface-missile-misha" },
+      { "id": "durandal" },
+      { "id": "ancient-dragons-legacy" },
+      { "id": "siraren" },
+      { "id": "infinity-basket" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "eternus" }
+    ]
+  },
+  {
+    "nid": 9788159,
+    "dt": [1696474800000, 1700103599000 ],
+    "a": [
+      { "id": "alencinoxs-wrath" },
+      { "id": "spear-of-a-new-dawn" },
+      { "id": "wind-rider" },
+      { "id": "sacred-tree-branch" },
+      { "id": "hell-cutter" },
+      { "id": "hilag-lance" },
+      { "id": "kaladra" },
+      { "id": "sashe-ithanes" }
+    ]
+  },
+  {
+    "nid": 9702717,
+    "dt": [1692846000000, 1696474799000 ],
+    "a": [
+      { "id": "doubleedged-decrescent" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "last-teatime" },
+      { "id": "spatiotemporal-fan" },
+      { "id": "dust-devil" },
+      { "id": "waters-origin" },
+      { "id": "els-fist" },
+      { "id": "adamant-shield" }
+    ]
+  },
+  {
+    "nid": 9593549,
+    "dt": [1689217200000, 1692845999000 ],
+    "a": [
+      { "id": "time-matter" },
+      { "id": "glowings-21" },
+      { "id": "sigurd-scythe" },
+      { "id": "noble-oath" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "andres-crossbow" },
+      { "id": "elyhas-knife" },
+      { "id": "wondrous-potion-vial" }
+    ]
+  },
+  {
+    "nid": 9503906,
+    "dt": [1685588400000, 1689217199000 ],
+    "a": [
+      { "id": "durandal" },
+      { "id": "crown-of-glory" },
+      { "id": "sword-of-winter-shadow" },
+      { "id": "doctors-bag" },
+      { "id": "strak-gauntlet" },
+      { "id": "aurius" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "magarahas-tome" }
+    ]
+  },
+  {
+    "nid": 9422834,
+    "dt": [1681959600000, 1685588399000],
+    "a": [
+      { "id": "manica-of-control" },
+      { "id": "celestine" },
+      { "id": "twilight-calamity" },
+      { "id": "unseen-observer" },
+      { "id": "silver-rain" },
+      { "id": "eternus" },
+      { "id": "sepulcrum" },
+      { "id": "steadfast-gatekeeper" }
+    ]
+  },
+  {
+    "nid": 9344640,
+    "dt": [1678330800000, 1681959599000],
+    "a": [
+      { "id": "dignus-orb" },
+      { "id": "bloodstone" },
+      { "id": "samsara-prayer-beads" },
+      { "id": "rise-of-a-monarch" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "waters-origin" }
+    ]
+  },
+  {
+    "nid": 9244501,
+    "dt": [1674702000000, 1678330799000],
+    "a": [
+      { "id": "cradle-of-life" },
+      { "id": "noble-oath" },
+      { "id": "shepherd-of-the-hollow" },
+      { "id": "idols-cheer" },
+      { "id": "hell-cutter" },
+      { "id": "hilag-lance" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" }
+    ]
+  },
+  {
+    "nid": 9105601,
+    "dt": [1671073199000, 1674701999000],
+    "a": [
+      { "id": "uberiuss-tooth" },
+      { "id": "touch-of-rekos" },
+      { "id": "bloody-rose" },
+      { "id": "sword-of-judgment" },
+      { "id": "dust-devil" },
+      { "id": "wondrous-potion-vial" },
+      { "id": "els-fist" },
+      { "id": "adamant-shield" }
+    ]
+  },
+  {
+    "nid": 8993147,
+    "dt": [1667444400000, 1671073199000],
+    "a": [
+      { "id": "black-hand-of-the-goddess" },
+      { "id": "iron-fan" },
+      { "id": "alexas-basket" },
+      { "id": "justice-for-all" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "sashe-ithanes" },
+      { "id": "silver-rain" },
+      { "id": "magarahas-tome" }
+    ]
+  },
+  {
+    "nid": 8889484,
+    "dt": [1663815600000, 1667444399000],
+    "a": [
+      { "id": "border-coin" },
+      { "id": "holy-sacrifice" },
+      { "id": "alabastron" },
+      { "id": "wind-rider" },
+      { "id": "sepulcrum" },
+      { "id": "aurius" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "andres-crossbow" }
+    ]
+  },
+  {
+    "nid": 8748316,
+    "dt": [1660186800000, 1663815540000],
+    "a": [
+      { "id": "secret-art-storm-sword" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "knowledge-seed" },
+      { "id": "song-of-stars" },
+      { "id": "elyhas-knife" },
+      { "id": "eternus" },
+      { "id": "strak-gauntlet" },
+      { "id": "steadfast-gatekeeper" }
+    ]
+  },
+  {
+    "nid": 8595172,
+    "dt": [1656558000000, 1660186740000],
+    "a": [
+      { "id": "spirits-breath" },
+      { "id": "dux-noctis" },
+      { "id": "a-little-queens-huge-crown" },
+      { "id": "wings-of-light-and-shadow" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "waters-origin" }
+    ]
+  },
+  {
+    "nid": 8502426,
+    "dt": [1652929200000, 1656557940000],
+    "a": [
+      { "id": "merciless-glutton" },
+      { "id": "crown-of-glory" },
+      { "id": "sword-of-summer-twilight" },
+      { "id": "stella-harpa" },
+      { "id": "els-fist" },
+      { "id": "hilag-lance" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" }
+    ]
+  },
+  {
+    "nid": 8374619,
+    "dt": [1649300400000, 1652929140000],
+    "a": [
+      { "id": "violet-talisman" },
+      { "id": "shimadra-staff" },
+      { "id": "eticas-scepter" },
+      { "id": "glowings-21" },
+      { "id": "dust-devil" },
+      { "id": "wondrous-potion-vial" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" }
+    ]
+  },
+  {
+    "nid": 8259578,
+    "dt": [1645671600000, 1649300340000],
+    "a": [
+      { "id": "abyssal-crown" },
+      { "id": "airtosurface-missile-misha" },
+      { "id": "snow-crystal" },
+      { "id": "elbris-ritual-sword" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "sashe-ithanes" },
+      { "id": "silver-rain" },
+      { "id": "magarahas-tome" }
+    ]
+  },
+  {
+    "nid": 8126769,
+    "dt": [1642042800000, 1645671540000],
+    "a": [
+      { "id": "creation-destruction" },
+      { "id": "spear-of-a-new-dawn" },
+      { "id": "rhianna-luciella" },
+      { "id": "celestine" },
+      { "id": "sepulcrum" },
+      { "id": "aurius" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "andres-crossbow" }
+    ]
+  },
+  {
+    "nid": 8004157,
+    "dt": [1638414000000, 1642042740000],
+    "a": [
+      { "id": "shepherd-of-the-hollow" },
+      { "id": "idols-cheer" },
+      { "id": "crimson-moon-of-nightmares" },
+      { "id": "song-of-stars" },
+      { "id": "elyhas-knife" },
+      { "id": "eternus" },
+      { "id": "strak-gauntlet" },
+      { "id": "steadfast-gatekeeper" }
+    ]
+  },
+  {
+    "nid": 7879025,
+    "dt": [1634785200000, 1638413940000],
+    "a": [
+      { "id": "last-teatime" },
+      { "id": "bloodstone" },
+      { "id": "durandal" },
+      { "id": "bastion-of-perlutia" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "waters-origin" }
+    ]
+  },
+  {
+    "nid": 7714017,
+    "dt": [1631156400000, 1634785140000],
+    "a": [
+      { "id": "sigurd-scythe" },
+      { "id": "ancient-dragons-legacy" },
+      { "id": "doubleedged-decrescent" },
+      { "id": "doctors-bag" },
+      { "id": "els-fist" },
+      { "id": "hilag-lance" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" }
+    ]
+  },
+  {
+    "nid": 7418272,
+    "dt": [1627527600000, 1631156340000],
+    "a": [
+      { "id": "manica-of-control" },
+      { "id": "touch-of-rekos" },
+      { "id": "time-matter" },
+      { "id": "sword-of-judgment" },
+      { "id": "dust-devil" },
+      { "id": "wondrous-potion-vial" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" }
+    ]
+  },
+  {
+    "nid": 7238170,
+    "dt": [1623898800000, 1627527540000],
+    "a": [
+      { "id": "dignus-orb" },
+      { "id": "unseen-observer" },
+      { "id": "alencinoxs-wrath" },
+      { "id": "rise-of-a-monarch" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "andres-crossbow" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" }
+    ]
+  },
+  {
+    "nid": 7109841,
+    "dt": [1620270000000, 1623898740000],
+    "a": [
+      { "id": "circus-fantasia" },
+      { "id": "holy-sacrifice" },
+      { "id": "alexas-basket" },
+      { "id": "stella-harpa" },
+      { "id": "sepulcrum" },
+      { "id": "aurius" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "sashe-ithanes" }
+    ]
+  },
+  {
+    "nid": 6970528,
+    "dt": [1616641200000, 1620269940000],
+    "a": [
+      { "id": "secret-art-storm-sword" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "bloody-rose" },
+      { "id": "iron-fan" },
+      { "id": "elyhas-knife" },
+      { "id": "eternus" },
+      { "id": "strak-gauntlet" },
+      { "id": "steadfast-gatekeeper" }
+    ]
+  },
+  {
+    "nid": 6780713,
+    "dt": [1613012400000, 1616641140000],
+    "a": [
+      { "id": "black-hand-of-the-goddess" },
+      { "id": "dux-noctis" },
+      { "id": "cradle-of-life" },
+      { "id": "elbris-ritual-sword" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "waters-origin" }
+    ]
+  },
+  {
+    "nid": 6574360,
+    "dt": [1609383600000, 1613012340000],
+    "a": [
+      { "id": "samsara-prayer-beads" },
+      { "id": "justice-for-all" },
+      { "id": "wind-rider" },
+      { "id": "shimadra-staff" },
+      { "id": "els-fist" },
+      { "id": "hilag-lance" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" }
+    ]
+  },
+  {
+    "nid": 6342887,
+    "dt": [1605754800000, 1609383540000],
+    "a": [
+      { "id": "alabastron" },
+      { "id": "doctors-bag" },
+      { "id": "time-matter" },
+      { "id": "song-of-stars" },
+      { "id": "dust-devil" },
+      { "id": "wondrous-potion-vial" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" }
+    ]
+  },
+  {
+    "nid": 6268111,
+    "dt": [1603940400000, 1604545140000],
+    "name": "Rate up Artifacts now in Powder Shop",
+    "title": "Powder of Knowledge Shop Update",
+    "content": "Improvements will be made to include the artifact in the drop rate up event in the Powder of Knowledge shop during the event period.<br>■ Drop Rate Up Artifact Sale Information<br>- Location: Shop > Powder of Knowledge<br>- Purchase Limit: Once during the Drop Rate Up event period<br>- Cost: 240 Powder of Knowledge<br><br>■ Details<br>- The Artifact in the drop rate up event will be sold in the Powder of Knowledge shop only during the event period.<br>- A summon icon will be displayed on the drop rate up Artifact in the powder of knowledge shop.<br>- Once the drop rate up event is over, this Artifact will no longer be sold in the Powder of Knowledge shop and the purchased limit will reset.<br>- However, the purchase limit of 1 will not apply if the drop rate up Artifact was already on the Powder of Knowledge shop Artifact rotation list. ",
+    "a": []
+  },
+  {
+    "nid": 6178209,
+    "dt": [1602126000000, 1605754740000],
+    "a": [
+      { "id": "eticas-scepter" },
+      { "id": "bloodstone" },
+      { "id": "creation-destruction" },
+      { "id": "noble-oath" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "andres-crossbow" },
+      { "id": "silver-rain" },
+      { "id": "magarahas-tome" }
+    ]
+  },
+  {
+    "nid": 5940028,
+    "dt": [1598497200000, 1602125940000],
+    "a": [
+      { "id": "uberiuss-tooth" },
+      { "id": "elbris-ritual-sword" },
+      { "id": "violet-talisman" },
+      { "id": "celestine" },
+      { "id": "sepulcrum" },
+      { "id": "aurius" },
+      { "id": "barthezs-orbuculum" },
+      { "id": "sashe-ithanes" }
+    ]
+  },
+  {
+    "nid": 5687739,
+    "dt": [1594868400000, 1598497140000],
+    "a": [
+      { "id": "rhianna-luciella" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "spirits-breath" },
+      { "id": "song-of-stars" },
+      { "id": "dust-devil" },
+      { "id": "eternus" },
+      { "id": "els-fist" },
+      { "id": "steadfast-gatekeeper" }
+    ]
+  },
+  {
+    "nid": 5500537,
+    "dt": [1591844400000, 1594868340000],
+    "a": [
+      { "id": "abyssal-crown" },
+      { "id": "bloodstone" },
+      { "id": "border-coin" },
+      { "id": "noble-oath" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" },
+      { "id": "elyhas-knife" },
+      { "id": "waters-origin" }
+    ]
+  },
+  {
+    "nid": 5278432,
+    "dt": [1588820400000, 1591844340000],
+    "a": [
+      { "id": "merciless-glutton" },
+      { "id": "holy-sacrifice" },
+      { "id": "alexas-basket" },
+      { "id": "idols-cheer" },
+      { "id": "strak-gauntlet" },
+      { "id": "hilag-lance" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" }
+    ]
+  },
+  {
+    "nid": 4996354,
+    "dt": [1585191600000, 1588820340000],
+    "a": [
+      { "id": "wind-rider" },
+      { "id": "shimadra-staff" },
+      { "id": "eticas-scepter" },
+      { "id": "sword-of-judgment" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "wondrous-potion-vial" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" }
+    ]
+  },
+  {
+    "nid": 4711230,
+    "dt": [1581562800000, 1585191540000],
+    "a": [
+      { "id": "time-matter" },
+      { "id": "iron-fan" },
+      { "id": "durandal" },
+      { "id": "justice-for-all" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "sashe-ithanes" },
+      { "id": "dust-devil" },
+      { "id": "magarahas-tome" }
+    ]
+  },
+  {
+    "nid": 4468107,
+    "dt": [1577934000000, 1581562740000],
+    "a": [
+      { "id": "sigurd-scythe" },
+      { "id": "elbris-ritual-sword" },
+      { "id": "alexas-basket" },
+      { "id": "celestine" },
+      { "id": "els-fist" },
+      { "id": "aurius" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" }
+    ]
+  },
+  {
+    "nid": 4289806,
+    "dt": [1574305200000, 1577933940000],
+    "a": [
+      { "id": "violet-talisman" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "abyssal-crown" },
+      { "id": "song-of-stars" },
+      { "id": "elyhas-knife" },
+      { "id": "waters-origin" },
+      { "id": "strak-gauntlet" },
+      { "id": "hilag-lance" }
+    ]
+  },
+  {
+    "nid": 4131172,
+    "dt": [1570644000000, 1574305140000],
+    "a": [
+      { "id": "eticas-scepter" },
+      { "id": "bloodstone" },
+      { "id": "uberiuss-tooth" },
+      { "id": "noble-oath" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "wondrous-potion-vial" }
+    ]
+  },
+  {
+    "nid": 3988659,
+    "dt": [1568224800000, 1570643940000],
+    "a": [
+      { "id": "border-coin" },
+      { "id": "holy-sacrifice" },
+      { "id": "wind-rider" },
+      { "id": "shimadra-staff" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "sashe-ithanes" }
+    ]
+  },
+  {
+    "nid": 3784588,
+    "dt": [1565805600000, 1568224740000],
+    "a": [
+      { "id": "alexas-basket" },
+      { "id": "celestine" },
+      { "id": "time-matter" },
+      { "id": "iron-fan" },
+      { "id": "dust-devil" },
+      { "id": "magarahas-tome" },
+      { "id": "els-fist" },
+      { "id": "aurius" }
+    ]
+  },
+  {
+    "nid": 3526916,
+    "dt": [1563386400000, 1565805540000],
+    "a": [
+      { "id": "abyssal-crown" },
+      { "id": "sword-of-judgment" },
+      { "id": "sigurd-scythe" },
+      { "id": "elbris-ritual-sword" },
+      { "id": "siraren" },
+      { "id": "rosa-hargana" },
+      { "id": "elyhas-knife" },
+      { "id": "waters-origin" }
+    ]
+  },
+  {
+    "nid": 3324549,
+    "dt": [1560967200000, 1563386340000],
+    "a": [
+      { "id": "durandal" },
+      { "id": "justice-for-all" },
+      { "id": "violet-talisman" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "strak-gauntlet" },
+      { "id": "hilag-lance" },
+      { "id": "kaladra" },
+      { "id": "infinity-basket" }
+    ]
+  },
+  {
+    "nid": 3235819,
+    "dt": [1558548000000, 1560967140000],
+    "a": [
+      { "id": "alexas-basket" },
+      { "id": "idols-cheer" },
+      { "id": "time-matter" },
+      { "id": "bloodstone" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "wondrous-potion-vial" },
+      { "id": "hell-cutter" },
+      { "id": "adamant-shield" }
+    ]
+  },
+  {
+    "nid": 3150600,
+    "dt": [1556128800000, 1558547940000],
+    "a": [
+      { "id": "eticas-scepter" },
+      { "id": "iron-fan" },
+      { "id": "uberiuss-tooth" },
+      { "id": "noble-oath" },
+      { "id": "tagehels-ancient-book" },
+      { "id": "sashe-ithanes" },
+      { "id": "dust-devil" },
+      { "id": "magarahas-tome" }
+    ]
+  },
+  {
+    "nid": 3068515,
+    "dt": [1553709600000, 1556128740000],
+    "a": [
+      { "id": "sigurd-scythe" },
+      { "id": "elbris-ritual-sword" },
+      { "id": "rhianna-luciella" },
+      { "id": "celestine" },
+      { "id": "els-fist" },
+      { "id": "aurius" },
+      { "id": "kaladra" },
+      { "id": "rosa-hargana" }
+    ]
+  },
+  {
+    "nid": 2951808,
+    "dt": [1551290400000, 1553709540000],
+    "a": [
+      { "id": "song-of-stars" },
+      { "id": "abyssal-crown" },
+      { "id": "wind-rider" },
+      { "id": "rod-of-amaryllis" },
+      { "id": "strak-gauntlet" },
+      { "id": "hilag-lance" },
+      { "id": "moonlight-dreamblade" },
+      { "id": "waters-origin" }
+    ]
+  },
+  {
+    "nid": 2951808,
+    "dt": [1547056800000, 1551290340000],
+    "a": [
+      { "id": "durandal" },
+      { "id": "holy-sacrifice" },
+      { "id": "bloodstone" },
+      { "id": "shimadra-staff" },
+      { "id": "hell-cutter" },
+      { "id": "siraren" },
+      { "id": "elyhas-knife" },
+      { "id": "adamant-shield" }
+    ]
+  }
+]

@@ -1,0 +1,2673 @@
+[
+   {
+      "nid": 2488018,
+      "type": "mystic",
+      "dt": [
+         "2018-12-14",
+         "2019-01-30"
+      ],
+      "name": "Not a mystic banner (ML Pull)",
+      "c": [
+         {
+            "id": "maid-chloe",
+            "new": true
+         },
+         {
+            "id": "assassin-cidd",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d3kxs6kpbh59hp.cloudfront.net/community/COMMUNITY/3c19bedf299445b3bb517207aec04a7c/d45a1d0035b84a72b3ab697bdcb5c4ae_1544702751.jpg"
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2019-01-30",
+         "2019-03-13"
+      ],
+      "name": "First mystic banner",
+      "c": [
+         {
+            "id": "specimen-sez",
+            "new": true
+         },
+         {
+            "id": "kitty-clarissa",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d3kxs6kpbh59hp.cloudfront.net/community/COMMUNITY/ddf81970804b4aec94318d09313273e7/a7a9a745dfd940e28ad5dc3d20b80d40_1548847527.jpg"
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2019-03-13",
+         "2019-04-24"
+      ],
+      "c": [
+         {
+            "id": "silver-blade-aramintha",
+            "new": true
+         },
+         {
+            "id": "blaze-dingo",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d3kxs6kpbh59hp.cloudfront.net/community/COMMUNITY/1f82f58d7fd14556951d1e925cb81ff2/f40aaf76568e4b09aada0957723923f8_1552463185.jpg"
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2019-04-24",
+         "2019-06-12"
+      ],
+      "c": [
+         {
+            "id": "sage-baal-sezan",
+            "new": true
+         },
+         {
+            "id": "crescent-moon-rin",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2019-06-12",
+         "2019-08-07"
+      ],
+      "c": [
+         {
+            "id": "fallen-cecilia",
+            "new": true
+         },
+         {
+            "id": "crescent-moon-rin",
+            "new": false
+         },
+         {
+            "id": "champion-zerato",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2019-08-07",
+         "2019-09-05"
+      ],
+      "c": [
+         {
+            "id": "apocalypse-ravi",
+            "new": true
+         },
+         {
+            "id": "wanderer-silk",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2019-09-05",
+         "2019-10-03"
+      ],
+      "c": [
+         {
+            "id": "judge-kise",
+            "new": false
+         },
+         {
+            "id": "roaming-warrior-leo",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2019-10-03",
+         "2019-10-31"
+      ],
+      "c": [
+         {
+            "id": "desert-jewel-basar",
+            "new": true
+         },
+         {
+            "id": "blood-blade-karin",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "nid": 4213346,
+      "type": "mystic",
+      "dt": [
+         1572490800000,
+         1574909999000
+      ],
+      "c": [
+         {
+            "id": "maid-chloe",
+            "new": false
+         },
+         {
+            "id": "troublemaker-crozet",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "nid": 4314868,
+      "type": "mystic",
+      "dt": [
+         1574910000000,
+         1577329199000
+      ],
+      "c": [
+         {
+            "id": "faithless-lidica",
+            "new": true
+         },
+         {
+            "id": "shooting-star-achates",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         1577329200000,
+         1579748399000
+      ],
+      "c": [
+         {
+            "id": "fallen-cecilia",
+            "new": false
+         },
+         {
+            "id": "benevolent-romann",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "nid": 4576165,
+      "type": "mystic",
+      "dt": [
+         1579748400000,
+         1582167599000
+      ],
+      "c": [
+         {
+            "id": "ambitious-tywin",
+            "new": true
+         },
+         {
+            "id": "blood-blade-karin",
+            "new": false
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d3kxs6kpbh59hp.cloudfront.net/community/COMMUNITY/8b8bd5bca3e34bc3bdf1bb336ea098d8/b96bb152a9f440e4b0c4e3f8c822fd6f_1579676701.jpg"
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-02-20T03:00:00Z",
+         "2020-03-29T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "martial-artist-ken",
+            "new": false
+         },
+         {
+            "id": "tempest-surin",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-03-29T03:00:00Z",
+         "2020-04-16T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "little-queen-charlotte",
+            "new": true
+         },
+         {
+            "id": "auxiliary-lots",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-04-16T03:00:00Z",
+         "2020-05-14T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "specter-tenebria",
+            "new": false
+         },
+         {
+            "id": "sinful-angelica",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "nid": 5331153,
+      "type": "mystic",
+      "dt": [
+         "2020-05-14T03:00:00Z",
+         "2020-06-11T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "blood-moon-haste",
+            "new": true
+         },
+         {
+            "id": "shadow-rose",
+            "new": false
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d3kxs6kpbh59hp.cloudfront.net/community/COMMUNITY/c0918c1491424c20b2a4f6d91ef64c68/e2bd831c86974ae181a619d247c4852c_1589353019.jpg"
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-06-11T03:00:00Z",
+         "2020-06-25T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "ruele-of-light",
+            "new": false
+         },
+         {
+            "id": "general-purrgis",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-06-25T03:00:00Z",
+         "2020-07-16T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "remnant-violet",
+            "new": true
+         },
+         {
+            "id": "crimson-armin",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-07-16T03:00:00Z",
+         "2020-08-06T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "arbiter-vildred",
+            "new": false
+         },
+         {
+            "id": "watcher-schuri",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-08-06T03:00:00Z",
+         "2020-08-27T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "briar-witch-iseria",
+            "new": true
+         },
+         {
+            "id": "fighter-maya",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-08-27T03:00:00Z",
+         "2020-09-17T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "dark-corvus",
+            "new": false
+         },
+         {
+            "id": "challenger-dominiel",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-09-17T03:00:00Z",
+         "2020-10-08T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "last-rider-krau",
+            "new": true
+         },
+         {
+            "id": "celestial-mercedes",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-10-08T03:00:00Z",
+         "2020-10-29T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "faithless-lidica",
+            "new": false
+         },
+         {
+            "id": "assassin-coli",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-10-29T03:00:00Z",
+         "2020-11-19T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "top-model-luluca",
+            "new": true
+         },
+         {
+            "id": "assassin-cidd",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-11-19T03:00:00Z",
+         "2020-12-10T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "maid-chloe",
+            "new": false
+         },
+         {
+            "id": "assassin-cartuja",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-12-10T03:00:00Z",
+         "2020-12-31T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "operator-sigret",
+            "new": true
+         },
+         {
+            "id": "blaze-dingo",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2020-12-31T03:00:00Z",
+         "2021-01-21T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "silver-blade-aramintha",
+            "new": false
+         },
+         {
+            "id": "kitty-clarissa",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-01-21T03:00:00Z",
+         "2021-02-11T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "archdemons-shadow",
+            "new": true
+         },
+         {
+            "id": "crescent-moon-rin",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-02-11T03:00:00Z",
+         "2021-03-04T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "fallen-cecilia",
+            "new": false
+         },
+         {
+            "id": "champion-zerato",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-03-04T03:00:00Z",
+         "2021-03-25T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "designer-lilibet",
+            "new": true
+         },
+         {
+            "id": "roaming-warrior-leo",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-03-25T03:00:00Z",
+         "2021-04-15T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "desert-jewel-basar",
+            "new": false
+         },
+         {
+            "id": "great-chief-khawana",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-04-15T03:00:00Z",
+         "2021-05-06T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "solitaria-of-the-snow",
+            "new": true
+         },
+         {
+            "id": "troublemaker-crozet",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-05-06T03:00:00Z",
+         "2021-05-27T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "little-queen-charlotte",
+            "new": false
+         },
+         {
+            "id": "wanderer-silk",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-05-27T03:00:00Z",
+         "2021-06-17T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "mediator-kawerik",
+            "new": true
+         },
+         {
+            "id": "shooting-star-achates",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-06-17T03:00:00Z",
+         "2021-07-08T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "ruele-of-light",
+            "new": false
+         },
+         {
+            "id": "inferno-khawazu",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-07-08T03:00:00Z",
+         "2021-07-29T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "straze",
+            "new": true
+         },
+         {
+            "id": "benevolent-romann",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-07-29T03:00:00Z",
+         "2021-08-19T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "specter-tenebria",
+            "new": false
+         },
+         {
+            "id": "crimson-armin",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-08-19T03:00:00Z",
+         "2021-09-09T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "closer-charles",
+            "new": true
+         },
+         {
+            "id": "tempest-surin",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-09-09T03:00:00Z",
+         "2021-09-30T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "specimen-sez",
+            "new": false
+         },
+         {
+            "id": "angel-of-light-angelica",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-09-30T03:00:00Z",
+         "2021-10-21T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "belian",
+            "new": true
+         },
+         {
+            "id": "auxiliary-lots",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-10-21T03:00:00Z",
+         "2021-11-11T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "apocalypse-ravi",
+            "new": false
+         },
+         {
+            "id": "shadow-rose",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-11-11T03:00:00Z",
+         "2021-12-02T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "spirit-eye-celine",
+            "new": true
+         },
+         {
+            "id": "blood-blade-karin",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-12-02T03:00:00Z",
+         "2021-12-23T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "judge-kise",
+            "new": false
+         },
+         {
+            "id": "general-purrgis",
+            "new": false
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2021-12-23T03:00:00Z",
+         "2022-01-13T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "conqueror-lilias",
+            "new": true
+         },
+         {
+            "id": "sinful-angelica",
+            "new": false
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-01-13T03:00:00Z",
+         "2022-02-03T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "remnant-violet",
+            "new": false
+         },
+         {
+            "id": "challenger-dominiel",
+            "new": false
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-02-03T03:00:00Z",
+         "2022-02-24T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "lionheart-cermia",
+            "new": true
+         },
+         {
+            "id": "watcher-schuri",
+            "new": false
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-02-24T03:00:00Z",
+         "2022-03-17T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "arbiter-vildred",
+            "new": false
+         },
+         {
+            "id": "bad-cat-armin",
+            "new": true
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-03-17T03:00:00Z",
+         "2022-04-07T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "pirate-captain-flan",
+            "new": true
+         },
+         {
+            "id": "fighter-maya",
+            "new": false
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-04-07T03:00:00Z",
+         "2022-04-28T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "mediator-kawerik",
+            "new": false
+         },
+         {
+            "id": "celestial-mercedes",
+            "new": false
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-04-28T03:00:00Z",
+         "2022-05-19T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "sage-baal-sezan",
+            "new": false
+         },
+         {
+            "id": "ambitious-tywin",
+            "new": false
+         },
+         {
+            "id": "briar-witch-iseria",
+            "new": false
+         },
+         {
+            "id": "assassin-cidd",
+            "new": false
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-05-19T03:00:00Z",
+         "2022-06-09T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "maid-chloe",
+            "new": false
+         },
+         {
+            "id": "martial-artist-ken",
+            "new": false
+         },
+         {
+            "id": "blood-moon-haste",
+            "new": false
+         },
+         {
+            "id": "assassin-coli",
+            "new": false
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-06-09T03:00:00Z",
+         "2022-06-30T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "dark-corvus"
+         },
+         {
+            "id": "last-rider-krau"
+         },
+         {
+            "id": "top-model-luluca"
+         },
+         {
+            "id": "kitty-clarissa"
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-06-30T03:00:00Z",
+         "2022-07-21T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "operator-sigret",
+            "new": false
+         },
+         {
+            "id": "archdemons-shadow",
+            "new": false
+         },
+         {
+            "id": "designer-lilibet",
+            "new": false
+         },
+         {
+            "id": "champion-zerato",
+            "new": false
+         }
+      ]
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-07-21T03:00:00Z",
+         "2022-08-11T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "sylvan-sage-vivian",
+            "new": true
+         },
+         {
+            "id": "assassin-cartuja"
+         }
+      ]
+   },
+   {
+      "nid": 8452182,
+      "type": "mystic",
+      "dt": [
+         "2022-04-28T03:00:00Z",
+         "2022-07-21T02:59:59Z"
+      ],
+      "name": "Double Custom Mystic Banner",
+      "thumbnail": "https://d3kxs6kpbh59hp.cloudfront.net/community/COMMUNITY/cbd7b5039edc4b5aa6b1766f71191bd9/c6b6fd5ccf7e415898a32c301e991b23_1651043570.jpg"
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-08-11T03:00:00Z",
+         "2022-09-01T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "fallen-cecilia"
+         },
+         {
+            "id": "silver-blade-aramintha"
+         },
+         {
+            "id": "desert-jewel-basar"
+         },
+         {
+            "id": "moon-bunny-dominiel",
+            "new": true
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-09-01T03:00:00Z",
+         "2022-09-22T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "commander-pavel",
+            "new": true
+         },
+         {
+            "id": "crescent-moon-rin"
+         }
+      ],
+      "a": []
+   },
+   {
+      "type": "mystic",
+      "dt": [
+         "2022-09-22T03:00:00Z",
+         "2022-10-13T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "apocalypse-ravi"
+         },
+         {
+            "id": "faithless-lidica"
+         },
+         {
+            "id": "solitaria-of-the-snow"
+         },
+         {
+            "id": "great-chief-khawana"
+         }
+      ],
+      "a": []
+   },
+   {
+      "nid": 8950283,
+      "type": "mystic",
+      "dt": [
+         "2022-10-13T03:00:00Z",
+         "2022-11-03T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "astromancer-elena",
+            "new": true
+         },
+         {
+            "id": "wanderer-silk"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/application_no/96001/default/COMMUNITYb3d48c2eeebe4351b5a16ed45fed5f7b/2019cc6b362744ae982746aa8cab5d64.jpg"
+   },
+   {
+      "nid": 8950283,
+      "type": "mystic",
+      "dt": [
+         "2022-11-03T03:00:00Z",
+         "2022-11-24T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "straze"
+         },
+         {
+            "id": "ruele-of-light"
+         },
+         {
+            "id": "specter-tenebria"
+         },
+         {
+            "id": "closer-charles"
+         },
+         {
+            "id": "roaming-warrior-leo"
+         }
+      ],
+      "a": []
+   },
+   {
+      "nid": 9042457,
+      "type": "mystic",
+      "dt": [
+         "2022-11-24T08:00:00Z",
+         "2022-12-15T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "zio",
+            "new": true
+         },
+         {
+            "id": "shooting-star-achates"
+         }
+      ],
+      "a": []
+   },
+   {
+      "nid": 8950283,
+      "type": "mystic",
+      "dt": [
+         "2022-12-15T03:00:00Z",
+         "2023-01-05T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "specimen-sez"
+         },
+         {
+            "id": "belian"
+         },
+         {
+            "id": "spirit-eye-celine"
+         },
+         {
+            "id": "judge-kise"
+         },
+         {
+            "id": "inferno-khawazu"
+         }
+      ],
+      "a": []
+   },
+   {
+      "nid": 9181783,
+      "type": "mystic",
+      "dt": [
+         "2023-01-05T03:00:00Z",
+         "2023-01-26T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "death-dealer-ray",
+            "new": true
+         },
+         {
+            "id": "crimson-armin"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/COMMUNITY/b030f2f360624a53b7d80985b701c0ad/5cd772cb9406422cb1701971cc9f3ca6.jpg"
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-01-26T03:00:00Z",
+         "2023-02-16T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "little-queen-charlotte"
+         },
+         {
+            "id": "conqueror-lilias"
+         },
+         {
+            "id": "remnant-violet"
+         },
+         {
+            "id": "arbiter-vildred"
+         },
+         {
+            "id": "peacemaker-furious",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-02-16T09:00:00Z",
+         "2023-03-09T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "lone-crescent-bellona",
+            "new": true
+         },
+         {
+            "id": "benevolent-romann"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-03-09T03:00:00Z",
+         "2023-03-30T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "lionheart-cermia"
+         },
+         {
+            "id": "briar-witch-iseria"
+         },
+         {
+            "id": "sage-baal-sezan"
+         },
+         {
+            "id": "ambitious-tywin"
+         },
+         {
+            "id": "angel-of-light-angelica"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 9384034,
+      "type": "mystic",
+      "dt": [
+         "2023-03-30T03:00:00Z",
+         "2023-04-20T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "architect-laika",
+            "new": true
+         },
+         {
+            "id": "tempest-surin"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/COMMUNITY/8c73aa6423164cb1b577d662ad684f12/c62dad427f054dcb83344bde2e6e800d.jpg"
+   },
+   {
+      "nid": 9359375,
+      "type": "mystic",
+      "dt": [
+         "2023-03-09T03:00:00Z",
+         "2023-05-11T02:59:59Z"
+      ],
+      "name": "Double Custom Mystic Banner (Second hero added later)",
+      "thumbnail": "https://d3kxs6kpbh59hp.cloudfront.net/community/COMMUNITY/cbd7b5039edc4b5aa6b1766f71191bd9/c6b6fd5ccf7e415898a32c301e991b23_1651043570.jpg"
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-04-20T03:00:00Z",
+         "2023-05-11T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "pirate-captain-flan"
+         },
+         {
+            "id": "mediator-kawerik"
+         },
+         {
+            "id": "maid-chloe"
+         },
+         {
+            "id": "martial-artist-ken"
+         },
+         {
+            "id": "auxiliary-lots"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-05-11T03:00:00Z",
+         "2023-06-01T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "twisted-eidolon-kayron",
+            "new": true
+         },
+         {
+            "id": "shadow-rose"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-06-01T03:00:00Z",
+         "2023-06-22T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "top-model-luluca"
+         },
+         {
+            "id": "last-rider-krau"
+         },
+         {
+            "id": "dark-corvus"
+         },
+         {
+            "id": "blood-moon-haste"
+         },
+         {
+            "id": "last-piece-karin",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-06-22T03:00:00Z",
+         "2023-07-13T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "requiem-roana",
+            "new": true
+         },
+         {
+            "id": "general-purrgis"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-07-13T03:00:00Z",
+         "2023-08-03T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "operator-sigret"
+         },
+         {
+            "id": "archdemons-shadow"
+         },
+         {
+            "id": "designer-lilibet"
+         },
+         {
+            "id": "sylvan-sage-vivian"
+         },
+         {
+            "id": "blood-blade-karin"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-08-03T03:00:00Z",
+         "2023-08-24T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "navy-captain-landy",
+            "new": true
+         },
+         {
+            "id": "challenger-dominiel"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-08-24T03:00:00Z",
+         "2023-09-14T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "silver-blade-aramintha"
+         },
+         {
+            "id": "lionheart-cermia"
+         },
+         {
+            "id": "desert-jewel-basar"
+         },
+         {
+            "id": "last-rider-krau"
+         },
+         {
+            "id": "infinite-horizon-achates",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 9744111,
+      "type": "mystic",
+      "dt": [
+         "2023-09-14T03:00:00Z",
+         "2023-10-05T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "urban-shadow-choux",
+            "new": true
+         },
+         {
+            "id": "sinful-angelica"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/f5418d75366648a3b80c912c6c329ca2.jpg"
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-10-05T03:00:00Z",
+         "2023-10-26T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "apocalypse-ravi"
+         },
+         {
+            "id": "faithless-lidica"
+         },
+         {
+            "id": "solitaria-of-the-snow"
+         },
+         {
+            "id": "commander-pavel"
+         },
+         {
+            "id": "watcher-schuri"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-10-26T03:00:00Z",
+         "2023-11-16T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "abyssal-yufine",
+            "new": true
+         },
+         {
+            "id": "bad-cat-armin"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-11-16T03:00:00Z",
+         "2023-12-07T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "specter-tenebria"
+         },
+         {
+            "id": "closer-charles"
+         },
+         {
+            "id": "straze"
+         },
+         {
+            "id": "astromancer-elena"
+         },
+         {
+            "id": "celestial-mercedes"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-12-07T03:00:00Z",
+         "2023-12-28T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "eternal-wanderer-ludwig",
+            "new": true
+         },
+         {
+            "id": "fighter-maya"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/c1916fc9afc34552be9f6272ee8fc985.jpg"
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2023-12-28T03:00:00Z",
+         "2024-01-18T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "specimen-sez"
+         },
+         {
+            "id": "spirit-eye-celine"
+         },
+         {
+            "id": "belian"
+         },
+         {
+            "id": "judge-kise"
+         },
+         {
+            "id": "moon-bunny-dominiel"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 9975648,
+      "type": "mystic",
+      "dt": [
+         "2024-01-18T03:00:00Z",
+         "2024-02-08T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "dragon-king-sharun",
+            "new": true
+         },
+         {
+            "id": "kitty-clarissa"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/1ccb0d9baa1442e49851d4030cc703c8.jpg"
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2024-02-08T03:00:00Z",
+         "2024-02-29T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "maid-chloe"
+         },
+         {
+            "id": "zio"
+         },
+         {
+            "id": "conqueror-lilias"
+         },
+         {
+            "id": "ruele-of-light"
+         },
+         {
+            "id": "assassin-coli"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": [
+         10003853,
+         10053533
+      ],
+      "type": "mystic",
+      "dt": [
+         "2024-02-29T08:00:00Z",
+         "2024-03-21T02:59:59Z"
+      ],
+      "name": "Special Mystic Summon (Keeps the same pity count)",
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/1abb29dacf8144639cbfc8fdf99edf93.jpg"
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2024-03-21T03:00:00Z",
+         "2024-04-11T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "briar-witch-iseria"
+         },
+         {
+            "id": "arbiter-vildred"
+         },
+         {
+            "id": "remnant-violet"
+         },
+         {
+            "id": "lone-crescent-bellona"
+         },
+         {
+            "id": "champion-zerato"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 10111857,
+      "type": "mystic",
+      "dt": [
+         "2024-04-11T03:00:00Z",
+         "2024-05-02T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "sea-phantom-politis",
+            "new": true
+         },
+         {
+            "id": "assassin-cartuja"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/69aff270fd0346ea94369e4a159ff58c.jpg"
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2024-05-02T03:00:00Z",
+         "2024-05-23T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "navy-captain-landy"
+         },
+         {
+            "id": "pirate-captain-flan"
+         },
+         {
+            "id": "little-queen-charlotte"
+         },
+         {
+            "id": "martial-artist-ken"
+         },
+         {
+            "id": "wandering-prince-cidd",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2024-05-23T03:00:00Z",
+         "2024-06-13T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "dragon-bride-senya",
+            "new": true
+         },
+         {
+            "id": "crescent-moon-rin"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 10209334,
+      "type": "mystic",
+      "dt": [
+         "2024-06-13T03:00:00Z",
+         "2024-07-04T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "fallen-cecilia"
+         },
+         {
+            "id": "abyssal-yufine"
+         },
+         {
+            "id": "blood-moon-haste"
+         },
+         {
+            "id": "sylvan-sage-vivian"
+         },
+         {
+            "id": "great-chief-khawana"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 0,
+      "type": "mystic",
+      "dt": [
+         "2024-07-04T03:00:00Z",
+         "2024-07-25T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "new-moon-luna",
+            "new": true
+         },
+         {
+            "id": "wanderer-silk"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": [
+         10343269
+      ],
+      "type": "mystic",
+      "dt": [
+         "2024-07-25T03:00:00Z",
+         "2024-08-15T02:59:59Z"
+      ],
+      "name": "Special Mystic Summon (Keeps the same pity count)",
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/7cd20ab263594322a830e0005f98a67c.jpg"
+   },
+   {
+      "nid": 10406748,
+      "type": "mystic",
+      "dt": [
+         "2024-08-15T03:00:00Z",
+         "2024-09-05T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "empyrean-ilynav",
+            "new": true
+         },
+         {
+            "id": "shooting-star-achates"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/607597871aa5417b953e17b84465338e.jpg"
+   },
+   {
+      "nid": 10450714,
+      "type": "mystic",
+      "dt": [
+         "2024-09-05T03:00:00Z",
+         "2024-09-26T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "pirate-captain-flan"
+         },
+         {
+            "id": "lionheart-cermia"
+         },
+         {
+            "id": "judge-kise"
+         },
+         {
+            "id": "mediator-kawerik"
+         },
+         {
+            "id": "crimson-armin"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 10475831,
+      "type": "mystic",
+      "dt": [
+         "2024-09-26T03:00:00Z",
+         "2024-10-17T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "harsetti",
+            "new": true
+         },
+         {
+            "id": "roaming-warrior-leo"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/79d89790920447768df38438287bb710.jpg"
+   },
+   {
+      "nid": 10491522,
+      "type": "mystic",
+      "dt": [
+         "2024-10-17T03:00:00Z",
+         "2024-11-07T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "urban-shadow-choux"
+         },
+         {
+            "id": "eternal-wanderer-ludwig"
+         },
+         {
+            "id": "top-model-luluca"
+         },
+         {
+            "id": "sage-baal-sezan"
+         },
+         {
+            "id": "blood-blade-karin"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 10511535,
+      "type": "mystic",
+      "dt": [
+         "2024-11-07T03:00:00Z",
+         "2024-11-28T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "hellion-lua",
+            "new": true
+         },
+         {
+            "id": "troublemaker-crozet"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/b5fe0312dd5a4399bd94fd6ec641abcf.jpg"
+   },
+   {
+      "nid": 10528238,
+      "type": "mystic",
+      "dt": [
+         "2024-11-28T03:00:00Z",
+         "2024-12-19T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "last-rider-krau"
+         },
+         {
+            "id": "twisted-eidolon-kayron"
+         },
+         {
+            "id": "dark-corvus"
+         },
+         {
+            "id": "pirate-captain-flan"
+         },
+         {
+            "id": "westwind-executioner-schuri",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/45be590bae7f4aaa9bdc35edb01e1e39.jpg"
+   },
+   {
+      "nid": 10546027,
+      "type": "mystic",
+      "dt": [
+         "2024-12-19T03:00:00Z",
+         "2025-01-09T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "bystander-hwayoung",
+            "new": true
+         },
+         {
+            "id": "benevolent-romann"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/65ef96cdd69f47498838ff38fb731eec.jpg"
+   },
+   {
+      "nid": 10571489,
+      "type": "mystic",
+      "dt": [
+         "2025-01-09T03:00:00Z",
+         "2025-01-30T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "archdemons-shadow"
+         },
+         {
+            "id": "operator-sigret"
+         },
+         {
+            "id": "specter-tenebria"
+         },
+         {
+            "id": "apocalypse-ravi"
+         },
+         {
+            "id": "new-kid-adin",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/9c8c3307f8cc4ad9b524a5399f58cf6f.jpg"
+   },
+   {
+      "nid": 10588664,
+      "type": "mystic",
+      "dt": [
+         "2025-01-30T03:00:00Z",
+         "2025-02-20T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "lone-wolf-peira",
+            "new": true
+         },
+         {
+            "id": "tempest-surin"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/98c59ad66bad4548b5bbcc0839edead4.jpg"
+   },
+   {
+      "nid": 10618573,
+      "type": "mystic",
+      "dt": [
+         "2025-02-20T03:00:00Z",
+         "2025-03-13T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "designer-lilibet"
+         },
+         {
+            "id": "silver-blade-aramintha"
+         },
+         {
+            "id": "straze"
+         },
+         {
+            "id": "solitaria-of-the-snow"
+         },
+         {
+            "id": "shadow-rose"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 10644683,
+      "type": "mystic",
+      "dt": [
+         "2025-03-13T03:00:00Z",
+         "2025-04-03T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "successor-taeyou",
+            "new": true
+         },
+         {
+            "id": "angel-of-light-angelica"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/f13f4117c8ef4aa0acf257e756b1fac9.jpg"
+   },
+   {
+      "nid": [
+         10672575
+      ],
+      "type": "mystic",
+      "dt": [
+         "2025-04-03T03:00:00Z",
+         "2025-04-24T02:59:59Z"
+      ],
+      "c": [ 
+         {
+         "id": "inferno-khawazu"
+         }
+      ],
+      "name": "Special Mystic Summon (Keeps the same pity count)",
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/74f4744420de490eb1b411b6891481de.jpg"
+   },
+   {
+      "nid": 10733343,
+      "type": "mystic",
+      "dt": [
+         "2025-04-24T03:00:00Z",
+         "2025-05-15T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "boss-arunka",
+            "new": true
+         },
+         {
+            "id": "auxiliary-lots"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/8db3a55b833a4a88a82611822b20d99b.jpg"
+   },
+   {
+      "nid": 10733343,
+      "type": "mystic",
+      "dt": [
+         "2025-05-15T03:00:00Z",
+         "2025-06-05T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "ruele-of-light"
+         },
+         {
+            "id": "judge-kise"
+         },
+         {
+            "id": "commander-pavel"
+         },
+         {
+            "id": "belian"
+         },
+         {
+            "id": "sinful-angelica"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 10773265,
+      "type": "mystic",
+      "dt": [
+         "2025-06-05T03:00:00Z",
+         "2025-06-26T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "disciplinary-prefect-aria",
+            "new": true
+         },
+         {
+            "id": "general-purrgis"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/30bcf608a72541ca87afd3c61d5ef65c.jpg"
+   },
+   {
+      "nid": 10814440,
+      "type": "mystic",
+      "dt": [
+         "2025-06-26T03:00:00Z",
+         "2025-07-10T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "abyssal-yufine"
+         },
+         {
+            "id": "desert-jewel-basar"
+         },
+         {
+            "id": "pirate-captain-flan"
+         },
+         {
+            "id": "arbiter-vildred"
+         },
+         {
+            "id": "last-piece-karin"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 10863501,
+      "type": "mystic",
+      "dt": [
+         "2025-07-10T03:00:00Z",
+         "2025-08-07T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "witch-of-the-mere-tenebria",
+            "new": true
+         },
+         {
+            "id": "watcher-schuri"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/c56da9e991954e1e9caa47a5a1e8d800.jpg"
+   },
+   {
+      "nid": 10863501,
+      "type": "mystic",
+      "dt": [
+         "2025-08-07T03:00:00Z",
+         "2025-08-28T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "briar-witch-iseria"
+         },
+         {
+            "id": "lionheart-cermia"
+         },
+         {
+            "id": "spirit-eye-celine"
+         },
+         {
+            "id": "lone-crescent-bellona"
+         },
+         {
+            "id": "champion-zerato"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 11027271,
+      "type": "mystic",
+      "dt": [
+         "2025-08-28T03:00:00Z",
+         "2025-09-18T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "lady-of-the-scales",
+            "new": true
+         },
+         {
+            "id": "kitty-clarissa"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/e3cc5c28611a412b947346bb71607ebf.jpg"
+   },
+   {
+      "nid": 11066469,
+      "type": "mystic",
+      "dt": [
+         "2025-09-18T03:00:00Z",
+         "2025-10-09T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "zio"
+         },
+         {
+            "id": "maid-chloe"
+         },
+         {
+            "id": "faithless-lidica"
+         },
+         {
+            "id": "closer-charles"
+         },
+         {
+            "id": "wretched-rose",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/6389b6fb989e491295798ad60d58fac9.jpg"
+   },
+   {
+      "nid": [
+         11095542
+      ],
+      "type": "mystic",
+      "dt": [
+         "2025-10-09T03:00:00Z",
+         "2025-10-30T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "tempest-surin"
+         }
+      ],
+      "name": "Special Mystic Summon 40% Off (Keeps the same pity count)",
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/bd05de60a720448b917aaf2732123751.jpg"
+   },
+   {
+      "nid": 11154842,
+      "type": "mystic",
+      "dt": [
+         "2025-10-30T03:00:00Z",
+         "2025-11-20T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "sea-phantom-politis"
+         },
+         {
+            "id": "dragon-king-sharun"
+         },
+         {
+            "id": "astromancer-elena"
+         },
+         {
+            "id": "navy-captain-landy"
+         },
+         {
+            "id": "challenger-dominiel"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 11303260,
+      "type": "mystic",
+      "dt": [
+         "2025-11-20T03:00:00Z",
+         "2025-12-11T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "school-nurse-yulha",
+            "new": true
+         },
+         {
+            "id": "infinite-horizon-achates"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/92ed4551288a4016bf706d247ed4af3f.jpg"
+   },
+   {
+      "nid": 11303260,
+      "type": "mystic",
+      "dt": [
+         "2025-12-11T03:00:00Z",
+         "2026-01-01T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "new-moon-luna"
+         },
+         {
+            "id": "architect-laika"
+         },
+         {
+            "id": "conqueror-lilias"
+         },
+         {
+            "id": "specimen-sez"
+         },
+         {
+            "id": "sealed-eye-surin",
+            "new": true
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/92ed4551288a4016bf706d247ed4af3f.jpg"
+   },
+   {
+      "nid": 11646395,
+      "type": "mystic",
+      "dt": [
+         "2026-01-01T03:00:00Z",
+         "2026-01-22T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "shepherd-of-the-dark-diene",
+            "new": true
+         },
+         {
+            "id": "assassin-cartuja"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/562692bc7a4e40de91df0030afed51c1.jpg"
+   },
+   {
+      "nid": 11859430,
+      "type": "mystic",
+      "dt": [
+         "2026-01-22T03:00:00Z",
+         "2026-02-05T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "empyrean-ilynav"
+         },
+         {
+            "id": "requiem-roana"
+         },
+         {
+            "id": "remnant-violet"
+         },
+         {
+            "id": "death-dealer-ray"
+         },
+         {
+            "id": "moon-bunny-dominiel"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 11859430,
+      "type": "mystic",
+      "dt": [
+         "2026-02-05T03:00:00Z",
+         "2026-02-26T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "monarch-of-the-sword-iseria",
+            "new": true
+         },
+         {
+            "id": "celestial-mercedes"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 11859430,
+      "type": "mystic",
+      "dt": [
+         "2026-02-26T03:00:00Z",
+         "2026-03-19T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "harsetti"
+         },
+         {
+            "id": "dragon-bride-senya"
+         },
+         {
+            "id": "fallen-cecilia"
+         },
+         {
+            "id": "last-rider-krau"
+         },
+         {
+            "id": "fighter-maya"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 12449965,
+      "type": "mystic",
+      "dt": [
+         "2026-03-19T03:00:00Z",
+         "2026-04-09T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "notos",
+            "new": true
+         },
+         {
+            "id": "blood-blade-karin"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/476262796b4548f8a534be9f892b2b76.jpg"
+   },
+   {
+      "nid": 12954690,
+      "type": "mystic",
+      "dt": [
+         "2026-04-09T03:00:00Z",
+         "2026-04-23T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "blaze-dingo"
+         }
+      ],
+      "name": "Special Mystic Summon 40% Off (Keeps the same pity count)",
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/9d93601782344db3b414e0042611bf46.jpg"
+   },
+   {
+      "nid": 12449965,
+      "type": "mystic",
+      "dt": [
+         "2026-04-23T09:00:00Z",
+         "2026-05-14T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "salome",
+            "new": true
+         },
+         {
+            "id": "wandering-prince-cidd"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/f749656c7f0f482e924155edcae32a96.jpg"
+   },
+   {
+      "nid": 11859430,
+      "type": "mystic",
+      "dt": [
+         "2026-05-14T09:00:00Z",
+         "2026-06-04T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "hellion-lua"
+         },
+         {
+            "id": "top-model-luluca"
+         },
+         {
+            "id": "pirate-captain-flan"
+         },
+         {
+            "id": "martial-artist-ken"
+         },
+         {
+            "id": "great-chief-khawana"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 13526329,
+      "type": "mystic",
+      "dt": [
+         "2026-06-04T09:00:00Z",
+         "2026-07-02T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "rhianna-and-luciella",
+            "new": true
+         },
+         {
+            "id": "sinful-angelica"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/2f8085d8542b427c81b9ecf72f636e92.jpg"
+   },
+   {
+      "nid": 11859430,
+      "type": "mystic",
+      "dt": [
+         "2026-07-02T09:00:00Z",
+         "2026-07-16T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "bystander-hwayoung"
+         },
+         {
+            "id": "eternal-wanderer-ludwig"
+         },
+         {
+            "id": "ambitious-tywin"
+         },
+         {
+            "id": "little-queen-charlotte"
+         },
+         {
+            "id": "assassin-coli"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 13984282,
+      "type": "mystic",
+      "dt": [
+         "2026-07-16T09:00:00Z",
+         "2026-08-06T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "tidal-rift-elvira",
+            "new": true
+         },
+         {
+            "id": "wanderer-silk"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/bc1daeae2cb349038d09e8a3a7d78a5b.jpg"
+   },
+   {
+      "nid": 14207641,
+      "type": "mystic",
+      "dt": [
+         "2026-08-06T09:00:00Z",
+         "2026-08-27T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "lone-wolf-peira"
+         },
+         {
+            "id": "dark-corvus"
+         },
+         {
+            "id": "sage-baal-sezan"
+         },
+         {
+            "id": "blood-moon-haste"
+         },
+         {
+            "id": "new-kid-adin"
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   },
+   {
+      "nid": 14428517,
+      "type": "mystic",
+      "dt": [
+         "2026-08-27T09:00:00Z",
+         "2026-09-17T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "lisette",
+            "new": true
+         },
+         {
+            "id": "last-piece-karin"
+         }
+      ],
+      "a": [],
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/ebff9e48088c4439a7c5268e64c2d919.jpg"
+   },
+   {
+      "nid": 14504497,
+      "type": "mystic",
+      "dt": [
+         "2026-09-17T09:00:00Z",
+         "2026-10-08T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "crimson-armin"
+         }
+      ],
+      "name": "Special Mystic Summon 40% Off (Keeps the same pity count)",
+      "thumbnail": "https://d2x8kymwjom7h7.cloudfront.net/live/application_no/96001/default/%ED%8A%B9%EB%B3%84-%EC%8B%A0%EB%B9%84-%EC%86%8C%ED%99%98-EN.jpg"
+   },
+   {
+      "nid": 14207641,
+      "type": "mystic",
+      "dt": [
+         "2026-10-08T09:00:00Z",
+         "2026-10-29T02:59:59Z"
+      ],
+      "c": [
+         {
+            "id": "successor-taeyou"
+         },
+         {
+            "id": "sylvan-sage-vivian"
+         },
+         {
+            "id": "urban-shadow-choux"
+         },
+         {
+            "id": "straze"
+         },
+         {
+            "id": ""
+         }
+      ],
+      "a": [],
+      "thumbnail": ""
+   }
+]

@@ -1,0 +1,1208 @@
+[
+    {
+        "nid": 14428517,
+        "dt": [
+            1790823600000,
+            1793501999000
+        ],
+        "c": [
+            {
+                "id": "disciplinary-prefect-aria"
+            },
+            {
+                "id": "spirit-eye-celine"
+            },
+            {
+                "id": "top-model-luluca"
+            }
+        ]
+    },
+    {
+        "nid": 14428517,
+        "dt": [
+            1788231600000,
+            1790823599000
+        ],
+        "c": [
+            {
+                "id": "pirate-captain-flan"
+            },
+            {
+                "id": "faithless-lidica"
+            },
+            {
+                "id": "astromancer-elena"
+            }
+        ]
+    },
+    {
+        "nid": 14132166,
+        "dt": [
+            1785553200000,
+            1788231599000
+        ],
+        "c": [
+            {
+                "id": "boss-arunka"
+            },
+            {
+                "id": "last-rider-krau"
+            },
+            {
+                "id": "operator-sigret"
+            }
+        ]
+    },
+    {
+        "nid": 14132166,
+        "dt": [
+            1782874799000,
+            1785553199000
+        ],
+        "c": [
+            {
+                "id": "navy-captain-landy"
+            },
+            {
+                "id": "sylvan-sage-vivian"
+            },
+            {
+                "id": "remnant-violet"
+            }
+        ]
+    },
+    {
+        "nid": 13753112,
+        "dt": [
+            1780282800000,
+            1782874799000
+        ],
+        "c": [
+            {
+                "id": "successor-taeyou"
+            },
+            {
+                "id": "urban-shadow-choux"
+            },
+            {
+                "id": "blood-moon-haste"
+            }
+        ]
+    },
+    {
+        "nid": 13177696,
+        "dt": [
+            1777604400000,
+            1780282799000
+        ],
+        "c": [
+            {
+                "id": "lionheart-cermia"
+            },
+            {
+                "id": "death-dealer-ray"
+            },
+            {
+                "id": "commander-pavel"
+            }
+        ]
+    },
+    {
+        "nid": 12525147,
+        "dt": [
+            1775012400000,
+            1777604399000
+        ],
+        "c": [
+            {
+                "id": "lone-wolf-peira"
+            },
+            {
+                "id": "little-queen-charlotte"
+            },
+            {
+                "id": "architect-laika"
+            }
+        ]
+    },
+    {
+        "nid": 12232261,
+        "dt": [
+            1772334000000,
+            1775012399000
+        ],
+        "c": [
+            {
+                "id": "bystander-hwayoung"
+            },
+            {
+                "id": "straze"
+            },
+            {
+                "id": "lone-crescent-bellona"
+            }
+        ]
+    },
+    {
+        "nid": 11931896,
+        "dt": [
+            1769914800000,
+            1772333999000
+        ],
+        "c": [
+            {
+                "id": "belian"
+            },
+            {
+                "id": "ambitious-tywin"
+            },
+            {
+                "id": "specter-tenebria"
+            }
+        ]
+    },
+    {
+        "nid": 11646395,
+        "dt": [
+            1767236400000,
+            1769914799000
+        ],
+        "c": [
+            {
+                "id": "zio"
+            },
+            {
+                "id": "arbiter-vildred"
+            },
+            {
+                "id": "hellion-lua"
+            }
+        ]
+    },
+    {
+        "nid": 11358076,
+        "dt": [
+            1764558000000,
+            1767236399000
+        ],
+        "c": [
+            {
+                "id": "judge-kise"
+            },
+            {
+                "id": "briar-witch-iseria"
+            },
+            {
+                "id": "harsetti"
+            }
+        ]
+    },
+    {
+        "nid": 11154842,
+        "dt": [
+            1761879600000,
+            1764557999000
+        ],
+        "c": [
+            {
+                "id": "solitaria-of-the-snow"
+            },
+            {
+                "id": "ruele-of-light"
+            },
+            {
+                "id": "martial-artist-ken"
+            }
+        ]
+    },
+    {
+        "nid": 11080010,
+        "dt": [
+            1759287600000,
+            1761879599000
+        ],
+        "c": [
+            {
+                "id": "empyrean-ilynav"
+            },
+            {
+                "id": "twisted-eidolon-kayron"
+            },
+            {
+                "id": "mediator-kawerik"
+            }
+        ]
+    },
+    {
+        "nid": 11027271,
+        "dt": [
+            1756695600000,
+            1759287599000
+        ],
+        "c": [
+            {
+                "id": "new-moon-luna"
+            },
+            {
+                "id": "requiem-roana"
+            },
+            {
+                "id": "apocalypse-ravi"
+            }
+        ]
+    },
+    {
+        "nid": 10937686,
+        "dt": [
+            1754017200000,
+            1756695599000
+        ],
+        "c": [
+            {
+                "id": "silver-blade-aramintha"
+            },
+            {
+                "id": "archdemons-shadow"
+            },
+            {
+                "id": "conqueror-lilias"
+            }
+        ]
+    },
+    {
+        "nid": 10814440,
+        "dt": [
+            1751338800000,
+            1754017199000
+        ],
+        "c": [
+            {
+                "id": "specimen-sez"
+            },
+            {
+                "id": "zio"
+            },
+            {
+                "id": "dragon-bride-senya"
+            }
+        ]
+    },
+    {
+        "nid": 10760089,
+        "dt": [
+            1748746800000,
+            1751338799000
+        ],
+        "c": [
+            {
+                "id": "sage-baal-sezan"
+            },
+            {
+                "id": "sea-phantom-politis"
+            },
+            {
+                "id": "closer-charles"
+            }
+        ]
+    },
+    {
+        "nid": 10710882,
+        "dt": [
+            1746068400000,
+            1748746799000
+        ],
+        "c": [
+            {
+                "id": "operator-sigret"
+            },
+            {
+                "id": "dragon-king-sharun"
+            },
+            {
+                "id": "spirit-eye-celine"
+            }
+        ]
+    },
+    {
+        "nid": 10661609,
+        "dt": [
+            1743476400000,
+            1746068399000
+        ],
+        "c": [
+            {
+                "id": "abyssal-yufine"
+            },
+            {
+                "id": "astromancer-elena"
+            },
+            {
+                "id": "dark-corvus"
+            }
+        ]
+    },
+    {
+        "nid": 10628101,
+        "dt": [
+            1740798000000,
+            1743476399000
+        ],
+        "c": [
+            {
+                "id": "pirate-captain-flan"
+            },
+            {
+                "id": "top-model-luluca"
+            },
+            {
+                "id": "last-rider-krau"
+            }
+        ]
+    },
+    {
+        "nid": 10588664,
+        "dt": [
+            1738378800000,
+            1740797999000
+        ],
+        "c": [
+            {
+                "id": "urban-shadow-choux"
+            },
+            {
+                "id": "eternal-wanderer-ludwig"
+            },
+            {
+                "id": "faithless-lidica"
+            }
+        ]
+    },
+    {
+        "nid": 10553202,
+        "dt": [
+            1735700400000,
+            1738378799000
+        ],
+        "c": [
+            {
+                "id": "lionheart-cermia"
+            },
+            {
+                "id": "desert-jewel-basar"
+            },
+            {
+                "id": "fallen-cecilia"
+            }
+        ]
+    },
+    {
+        "nid": 10528238,
+        "dt": [
+            1733022000000,
+            1735700399000
+        ],
+        "c": [
+            {
+                "id": "navy-captain-landy"
+            },
+            {
+                "id": "remnant-violet"
+            },
+            {
+                "id": "commander-pavel"
+            }
+        ]
+    },
+    {
+        "nid": 10505948,
+        "dt": [
+            1730430000000,
+            1733021999000
+        ],
+        "c": [
+            {
+                "id": "ambitious-tywin"
+            },
+            {
+                "id": "blood-moon-haste"
+            },
+            {
+                "id": "sylvan-sage-vivian"
+            }
+        ]
+    },
+    {
+        "nid": 10475831,
+        "dt": [
+            1727751600000,
+            1730429999000
+        ],
+        "c": [
+            {
+                "id": "martial-artist-ken"
+            },
+            {
+                "id": "maid-chloe"
+            },
+            {
+                "id": "little-queen-charlotte"
+            }
+        ]
+    },
+    {
+        "nid": 10437567,
+        "dt": [
+            1725159600000,
+            1727751599000
+        ],
+        "c": [
+            {
+                "id": "twisted-eidolon-kayron"
+            },
+            {
+                "id": "lone-crescent-bellona"
+            },
+            {
+                "id": "requiem-roana"
+            }
+        ]
+    },
+    {
+        "nid": 10343269,
+        "dt": [
+            1722481200000,
+            1725159599000
+        ],
+        "c": [
+            {
+                "id": "architect-laika"
+            },
+            {
+                "id": "mediator-kawerik"
+            },
+            {
+                "id": "death-dealer-ray"
+            }
+        ]
+    },
+    {
+        "nid": 10247651,
+        "dt": [
+            1719802800000,
+            1722481199000
+        ],
+        "c": [
+            {
+                "id": "briar-witch-iseria"
+            },
+            {
+                "id": "arbiter-vildred"
+            },
+            {
+                "id": "belian"
+            }
+        ]
+    },
+    {
+        "nid": 10197422,
+        "dt": [
+            1717210800000,
+            1719802799000
+        ],
+        "c": [
+            {
+                "id": "zio"
+            },
+            {
+                "id": "ruele-of-light"
+            },
+            {
+                "id": "conqueror-lilias"
+            }
+        ]
+    },
+    {
+        "nid": 10130930,
+        "dt": [
+            1714532400000,
+            1717210799000
+        ],
+        "c": [
+            {
+                "id": "specimen-sez"
+            },
+            {
+                "id": "apocalypse-ravi"
+            },
+            {
+                "id": "closer-charles"
+            }
+        ]
+    },
+    {
+        "nid": 10094643,
+        "dt": [
+            1711940400000,
+            1714532399000
+        ],
+        "c": [
+            {
+                "id": "judge-kise"
+            },
+            {
+                "id": "spirit-eye-celine"
+            },
+            {
+                "id": "sage-baal-sezan"
+            }
+        ]
+    },
+    {
+        "nid": 10053533,
+        "dt": [
+            1709262000000,
+            1711940399000
+        ],
+        "c": [
+            {
+                "id": "specter-tenebria"
+            },
+            {
+                "id": "dark-corvus"
+            },
+            {
+                "id": "straze"
+            }
+        ]
+    },
+    {
+        "nid": 10002464,
+        "dt": [
+            1706756400000,
+            1709261999000
+        ],
+        "c": [
+            {
+                "id": "archdemons-shadow"
+            },
+            {
+                "id": "designer-lilibet"
+            },
+            {
+                "id": "solitaria-of-the-snow"
+            }
+        ]
+    },
+    {
+        "nid": 0,
+        "dt": [
+            1704078000000,
+            1706756399000
+        ],
+        "c": [
+            {
+                "id": "astromancer-elena"
+            },
+            {
+                "id": "faithless-lidica"
+            },
+            {
+                "id": "operator-sigret"
+            }
+        ]
+    },
+    {
+        "nid": 9878485,
+        "dt": [
+            1701399600000,
+            1704077999000
+        ],
+        "c": [
+            {
+                "id": "silver-blade-aramintha"
+            },
+            {
+                "id": "top-model-luluca"
+            },
+            {
+                "id": "last-rider-krau"
+            }
+        ]
+    },
+    {
+        "nid": 9829013,
+        "dt": [
+            1698807600000,
+            1701399599000
+        ],
+        "c": [
+            {
+                "id": "commander-pavel"
+            },
+            {
+                "id": "desert-jewel-basar"
+            },
+            {
+                "id": "fallen-cecilia"
+            }
+        ]
+    },
+    {
+        "nid": 9770101,
+        "dt": [
+            1696129200000,
+            1698807599000
+        ],
+        "c": [
+            {
+                "id": "remnant-violet"
+            },
+            {
+                "id": "briar-witch-iseria"
+            },
+            {
+                "id": "blood-moon-haste"
+            }
+        ]
+    },
+    {
+        "nid": 9719643,
+        "dt": [
+            1693537200000,
+            1696129199000
+        ],
+        "c": [
+            {
+                "id": "sylvan-sage-vivian"
+            },
+            {
+                "id": "little-queen-charlotte"
+            },
+            {
+                "id": "maid-chloe"
+            }
+        ]
+    },
+    {
+        "nid": 0,
+        "dt": [
+            1690858800000,
+            1693537199000
+        ],
+        "c": [
+            {
+                "id": "closer-charles"
+            },
+            {
+                "id": "ambitious-tywin"
+            },
+            {
+                "id": "belian"
+            }
+        ]
+    },
+    {
+        "nid": 9546011,
+        "dt": [
+            1688180400000,
+            1690858799000
+        ],
+        "c": [
+            {
+                "id": "martial-artist-ken"
+            },
+            {
+                "id": "pirate-captain-flan"
+            },
+            {
+                "id": "mediator-kawerik"
+            }
+        ]
+    },
+    {
+        "nid": 9491052,
+        "dt": [
+            1685588400000,
+            1688180399000
+        ],
+        "c": [
+            {
+                "id": "specimen-sez"
+            },
+            {
+                "id": "apocalypse-ravi"
+            },
+            {
+                "id": "sage-baal-sezan"
+            }
+        ]
+    },
+    {
+        "nid": 9436136,
+        "dt": [
+            1682910000000,
+            1685588399000
+        ],
+        "c": [
+            {
+                "id": "lionheart-cermia"
+            },
+            {
+                "id": "straze"
+            },
+            {
+                "id": "arbiter-vildred"
+            }
+        ]
+    },
+    {
+        "nid": 9384034,
+        "dt": [
+            1680318000000,
+            1682909999000
+        ],
+        "c": [
+            {
+                "id": "conqueror-lilias"
+            },
+            {
+                "id": "specter-tenebria"
+            },
+            {
+                "id": "dark-corvus"
+            }
+        ]
+    },
+    {
+        "nid": 9294356,
+        "dt": [
+            1677639600000,
+            1680317999000
+        ],
+        "c": [
+            {
+                "id": "spirit-eye-celine"
+            },
+            {
+                "id": "judge-kise"
+            },
+            {
+                "id": "solitaria-of-the-snow"
+            }
+        ]
+    },
+    {
+        "nid": 9244501,
+        "dt": [
+            1675220400000,
+            1677639599000
+        ],
+        "c": [
+            {
+                "id": "ruele-of-light"
+            },
+            {
+                "id": "archdemons-shadow"
+            },
+            {
+                "id": "designer-lilibet"
+            }
+        ]
+    },
+    {
+        "nid": 0,
+        "dt": [
+            1672542000000,
+            1675220399000
+        ],
+        "c": [
+            {
+                "id": "last-rider-krau"
+            },
+            {
+                "id": "operator-sigret"
+            },
+            {
+                "id": "top-model-luluca"
+            }
+        ]
+    },
+    {
+        "nid": 0,
+        "dt": [
+            1669863600000,
+            1672541999000
+        ],
+        "c": [
+            {
+                "id": "blood-moon-haste"
+            },
+            {
+                "id": "remnant-violet"
+            },
+            {
+                "id": "briar-witch-iseria"
+            }
+        ]
+    },
+    {
+        "nid": 8979711,
+        "dt": [
+            1667271600000,
+            1669863599000
+        ],
+        "c": [
+            {
+                "id": "silver-blade-aramintha"
+            },
+            {
+                "id": "fallen-cecilia"
+            },
+            {
+                "id": "desert-jewel-basar"
+            }
+        ]
+    },
+    {
+        "nid": 8911042,
+        "dt": [
+            1664593200000,
+            1667271599000
+        ],
+        "c": [
+            {
+                "id": "little-queen-charlotte"
+            },
+            {
+                "id": "maid-chloe"
+            }
+        ]
+    },
+    {
+        "nid": 8823517,
+        "dt": [
+            1662001200000,
+            1664593200000
+        ],
+        "c": [
+            {
+                "id": "ambitious-tywin"
+            },
+            {
+                "id": "belian"
+            }
+        ]
+    },
+    {
+        "nid": 8660321,
+        "dt": [
+            1659322800000,
+            1662001200000
+        ],
+        "c": [
+            {
+                "id": "sage-baal-sezan"
+            },
+            {
+                "id": "closer-charles"
+            }
+        ]
+    },
+    {
+        "nid": 8595172,
+        "dt": [
+            1656644400000,
+            1659322800000
+        ],
+        "c": [
+            {
+                "id": "specimen-sez"
+            },
+            {
+                "id": "apocalypse-ravi"
+            }
+        ]
+    },
+    {
+        "nid": 8519300,
+        "dt": [
+            1654052400000,
+            1656644400000
+        ],
+        "c": [
+            {
+                "id": "arbiter-vildred"
+            },
+            {
+                "id": "mediator-kawerik"
+            }
+        ]
+    },
+    {
+        "nid": 8452182,
+        "dt": [
+            1651374000000,
+            1654052400000
+        ],
+        "c": [
+            {
+                "id": "dark-corvus"
+            },
+            {
+                "id": "straze"
+            }
+        ]
+    },
+    {
+        "nid": 8356177,
+        "dt": [
+            1648782000000,
+            1651374000000
+        ],
+        "c": [
+            {
+                "id": "specter-tenebria"
+            },
+            {
+                "id": "solitaria-of-the-snow"
+            }
+        ]
+    },
+    {
+        "nid": 8259578,
+        "dt": [
+            1646103600000,
+            1648782000000
+        ],
+        "c": [
+            {
+                "id": "martial-artist-ken"
+            },
+            {
+                "id": "designer-lilibet"
+            }
+        ]
+    },
+    {
+        "nid": 8165514,
+        "dt": [
+            1643684400000,
+            1646103600000
+        ],
+        "c": [
+            {
+                "id": "judge-kise"
+            },
+            {
+                "id": "archdemons-shadow"
+            }
+        ]
+    },
+    {
+        "nid": 8085134,
+        "dt": [
+            1641006000000,
+            1643684400000
+        ],
+        "c": [
+            {
+                "id": "top-model-luluca"
+            },
+            {
+                "id": "operator-sigret"
+            }
+        ]
+    },
+    {
+        "nid": 7988706,
+        "dt": [
+            1638327600000,
+            1641006000000
+        ],
+        "c": [
+            {
+                "id": "last-rider-krau"
+            },
+            {
+                "id": "ruele-of-light"
+            }
+        ]
+    },
+    {
+        "nid": 7902278,
+        "dt": [
+            1635735600000,
+            1638327600000
+        ],
+        "c": [
+            {
+                "id": "remnant-violet"
+            },
+            {
+                "id": "briar-witch-iseria"
+            }
+        ]
+    },
+    {
+        "nid": 7801713,
+        "dt": [
+            1633057200000,
+            1635735600000
+        ],
+        "c": [
+            {
+                "id": "little-queen-charlotte"
+            },
+            {
+                "id": "blood-moon-haste"
+            }
+        ]
+    },
+    {
+        "nid": 7418272,
+        "dt": [
+            1630465200000,
+            1633057200000
+        ],
+        "c": [
+            {
+                "id": "faithless-lidica"
+            },
+            {
+                "id": "ambitious-tywin"
+            }
+        ]
+    },
+    {
+        "nid": 7418272,
+        "dt": [
+            1627786800000,
+            1630465200000
+        ],
+        "c": [
+            {
+                "id": "desert-jewel-basar"
+            },
+            {
+                "id": "maid-chloe"
+            }
+        ]
+    },
+    {
+        "nid": 7287061,
+        "dt": [
+            1625108400000,
+            1627786800000
+        ],
+        "c": [
+            {
+                "id": "fallen-cecilia"
+            },
+            {
+                "id": "apocalypse-ravi"
+            }
+        ]
+    },
+    {
+        "nid": 7167497,
+        "dt": [
+            1622516400000,
+            1625108400000
+        ],
+        "c": [
+            {
+                "id": "silver-blade-aramintha"
+            },
+            {
+                "id": "sage-baal-sezan"
+            }
+        ]
+    },
+    {
+        "nid": 7087824,
+        "dt": [
+            1619838000000,
+            1622516400000
+        ],
+        "c": [
+            {
+                "id": "specimen-sez"
+            }
+        ]
+    },
+    {
+        "nid": 6993206,
+        "dt": [
+            1617246000000,
+            1619838000000
+        ],
+        "c": [
+            {
+                "id": "dark-corvus"
+            }
+        ]
+    },
+    {
+        "nid": 6871594,
+        "dt": [
+            1614567600000,
+            1617246000000
+        ],
+        "c": [
+            {
+                "id": "arbiter-vildred"
+            },
+            {
+                "id": "archdemons-shadow"
+            }
+        ]
+    },
+    {
+        "nid": 6739753,
+        "dt": [
+            1612148400000,
+            1614567600000
+        ],
+        "c": [
+            {
+                "id": "specter-tenebria"
+            }
+        ]
+    },
+    {
+        "nid": 6574360,
+        "dt": [
+            1609470000000,
+            1612148400000
+        ],
+        "c": [
+            {
+                "id": "martial-artist-ken"
+            }
+        ]
+    },
+    {
+        "nid": 6376959,
+        "dt": [
+            1606791600000,
+            1609470000000
+        ],
+        "c": [
+            {
+                "id": "judge-kise"
+            }
+        ]
+    },
+    {
+        "nid": 6268111,
+        "dt": [
+            1603958400000,
+            1606791600000
+        ],
+        "c": [
+            {
+                "id": "ruele-of-light"
+            }
+        ]
+    }
+]
