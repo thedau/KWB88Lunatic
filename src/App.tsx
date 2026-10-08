@@ -31,6 +31,7 @@ const starterHeroes: Hero[] = [
   { name: 'Navy Captain Landy', short: 'L', role: 'Ranger', element: 'Ice', tone: 'navy', id: 'c2109' },
 ]
 const roles: Role[] = ['All', 'Knight', 'Soul Weaver', 'Mage', 'Ranger', 'Thief', 'Warrior', 'Assassin']
+const elements = ['All', 'Fire', 'Ice', 'Earth', 'Light', 'Dark']
 const roleNames: Record<string, Exclude<Role, 'All'>> = { knight: 'Knight', manauser: 'Soul Weaver', mage: 'Mage', ranger: 'Ranger', assassin: 'Assassin', warrior: 'Warrior' }
 const elementNames: Record<string, string> = { wind: 'Earth', fire: 'Fire', ice: 'Ice', light: 'Light', dark: 'Dark' }
 
@@ -50,6 +51,7 @@ function App() {
   const [mode, setMode] = useState<Mode>('normal')
   const [gameNumber, setGameNumber] = useState(1)
   const [role, setRole] = useState<Role>('All')
+  const [element, setElement] = useState('All')
   const [query, setQuery] = useState('')
   const [heroes, setHeroes] = useState<Hero[]>(starterHeroes)
   const [draft, setDraft] = useState<DraftState>(() => createDraft(2))
@@ -57,6 +59,7 @@ function App() {
   const [lockedHeroes, setLockedHeroes] = useState<string[]>([])
   const [persistentBans, setPersistentBans] = useState<string[]>([])
   const [banHistory, setBanHistory] = useState<Hero[]>([])
+  const [previousRoundPicks, setPreviousRoundPicks] = useState<Hero[]>([])
   const [matchups, setMatchups] = useState<Matchup[]>(() => Array.from({ length: 5 }, () => ({ blue: '', red: '' })))
   const [matchupHistory, setMatchupHistory] = useState<Matchup[]>([])
   const preBanCount = mode === 'lunatic' ? 1 : 2
@@ -66,7 +69,7 @@ function App() {
   const currentMatchup = matchups[currentPairIndex] ?? { blue: '', red: '' }
   const usedNames = useMemo(() => [...draft.preBan.blue, ...draft.preBan.red, ...draft.picks.blue, ...draft.picks.red, draft.postBan.blue, draft.postBan.red].filter(Boolean).map((hero) => hero!.name), [draft])
   const unavailableNames = new Set([...usedNames, ...persistentBans, ...(mode === 'lunatic' ? lockedHeroes : [])])
-  const filteredHeroes = useMemo(() => heroes.filter((hero) => hero.name.toLowerCase().includes(query.toLowerCase()) && (role === 'All' || hero.role === role)), [heroes, query, role])
+  const filteredHeroes = useMemo(() => heroes.filter((hero) => hero.name.toLowerCase().includes(query.toLowerCase()) && (role === 'All' || hero.role === role) && (element === 'All' || hero.element === element)), [heroes, query, role, element])
 
   useEffect(() => {
     fetch('/data/CeciliaBot.github.io-master/data/HeroDatabase.json')
@@ -81,10 +84,12 @@ function App() {
   const startNextGame = () => {
     if (mode !== 'lunatic') return resetGame()
     if (gameNumber >= 15) return
-    const gamePicks = [...draft.picks.blue, ...draft.picks.red].filter((hero): hero is Hero => Boolean(hero)).map((hero) => hero.name)
+    const gamePicks = [...draft.picks.blue, ...draft.picks.red].filter((hero): hero is Hero => Boolean(hero))
+    const gamePickNames = gamePicks.map((hero) => hero.name)
     const nextHistory = [...banHistory, ...draft.preBan.blue, ...draft.preBan.red].filter((hero): hero is Hero => Boolean(hero)).slice(-12)
     const pairComplete = gameNumber % 3 === 0
-    const nextLockedHeroes = pairComplete ? [] : [...new Set([...lockedHeroes, ...gamePicks])]
+    const nextLockedHeroes = pairComplete ? [] : [...new Set(gamePickNames)]
+    setPreviousRoundPicks(gamePicks)
     setLockedHeroes(nextLockedHeroes)
     setPersistentBans([...new Set([...nextHistory.map((hero) => hero.name), ...nextLockedHeroes])])
     setBanHistory(nextHistory)
@@ -180,6 +185,7 @@ function App() {
     setLockedHeroes([])
     setPersistentBans([])
     setBanHistory([])
+    setPreviousRoundPicks([])
     setMatchups(Array.from({ length: 5 }, () => ({ blue: '', red: '' })))
     setMatchupHistory([])
     setDraft(createDraft(nextMode === 'normal' ? 2 : 1))
@@ -205,16 +211,21 @@ function App() {
         <div className="arena-body">
           <DraftTeam name={currentMatchup.blue || 'BLUE SIDE'} accent="blue" slots={draft} side="blue" activeTurn={currentTurn} onSlot={selectSlot} />
           <section className="pool-section">
-            <div className="pool-head"><div><div className="eyebrow">AVAILABLE ROSTER / {heroes.length} HEROES</div><h2>{currentTurn?.phase === 'postban' ? 'Choose a threat to remove' : 'Choose your champions'}</h2></div><span className="pool-count">{filteredHeroes.length} / {heroes.length} heroes</span></div>
-            <div className="controls"><label className="search-box"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search hero..." /></label><div className="role-filters">{roles.map((item) => <button type="button" key={item} className={role === item ? 'active' : ''} onClick={() => setRole(item)}>{item}</button>)}</div></div>
+            <div className="pool-head"><div><div className="eyebrow">AVAILABLE ROSTER / {heroes.length} HEROES</div><h2>{currentTurn?.phase === 'postban' ? 'Choose a threat to remove' : 'Choose your heroes'}</h2></div><span className="pool-count">{filteredHeroes.length} / {heroes.length} heroes</span></div>
+            <div className="controls"><label className="search-box"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search hero..." /></label><div className="role-filters">{roles.map((item) => <button type="button" key={item} className={role === item ? 'active' : ''} onClick={() => setRole((current) => current === item ? 'All' : item)}>{item}</button>)}</div><div className="role-filters element-filters">{elements.map((item) => <button type="button" key={item} className={element === item ? 'active' : ''} onClick={() => setElement((current) => current === item ? 'All' : item)}>{item}</button>)}</div></div>
             <div className="hero-grid">{filteredHeroes.map((hero) => <HeroCard key={hero.name} hero={hero} currentTurn={currentTurn} draft={draft} unavailableNames={unavailableNames} onChoose={chooseHero} />)}</div>
           </section>
           <DraftTeam name={currentMatchup.red || 'RED SIDE'} accent="red" slots={draft} side="red" activeTurn={currentTurn} onSlot={selectSlot} />
         </div>
       </section>
+      {mode === 'lunatic' && previousRoundPicks.length > 0 && <PreviousRoundPicks heroes={previousRoundPicks} round={gameNumber - 1} />}
       <footer><span>EPIC SEVEN / {mode === 'lunatic' ? '5 PAIRS / BO3' : 'DRAFT PROTOCOL'} / 5v5</span><span><b className="footer-dot" /> {mode === 'lunatic' ? `${persistentBans.length} ACTIVE PRE-BANS` : 'ALL SYSTEMS NOMINAL'}</span></footer>
     </main>
   )
+}
+
+function PreviousRoundPicks({ heroes, round }: { heroes: Hero[]; round: number }) {
+  return <section className="previous-round-picks"><div><div className="eyebrow">ROUND {round} / PICK MEMORY</div><strong>Heroes picked last round</strong></div><div className="previous-round-hero-list">{heroes.map((hero) => <div className="previous-round-hero" key={hero.name}><HeroPortrait hero={hero} variant="s" /><span>{hero.name}</span></div>)}</div></section>
 }
 
 function HeroCard({ hero, currentTurn, draft, unavailableNames, onChoose }: { hero: Hero; currentTurn?: Turn; draft: DraftState; unavailableNames: Set<string>; onChoose: (hero: Hero) => void }) {
