@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+public/data/
+public/E7Assets-Temp-main/
 
 # Editor directories and files
 .vscode/*
