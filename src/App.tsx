@@ -298,13 +298,18 @@ function App() {
 }
 
 function PreviousRoundSummary({ summary }: { summary: RoundSummary }) {
-  return <section className="previous-round-picks"><div className="previous-round-heading"><div><div className="eyebrow">PAIR / {summary.matchup.blue || 'Blue'} VS {summary.matchup.red || 'Red'}</div><strong>Round {summary.round} summary</strong></div><span className="previous-round-round">ROUND {summary.round}</span></div><div className="previous-round-groups"><RoundSummaryGroup label="PRE-BAN" heroes={summary.preBans.map((hero) => ({ hero }))} empty="No pre-bans" /><RoundSummaryGroup label="PICKS" heroes={summary.picks} empty="No picks" /><RoundSummaryGroup label="POST-BAN" heroes={summary.postBans} empty="No post-bans" /></div></section>
+  const bluePicks = summary.picks.filter((pick) => pick.side === 'blue')
+  const redPicks = summary.picks.filter((pick) => pick.side === 'red')
+  const banHalf = Math.ceil(summary.preBans.length / 2)
+  const blueBans = summary.preBans.slice(0, banHalf)
+  const redBans = summary.preBans.slice(banHalf)
+  const bluePostBan = summary.postBans.find((ban) => ban.side === 'blue')?.hero
+  const redPostBan = summary.postBans.find((ban) => ban.side === 'red')?.hero
+  return <section className="previous-round-picks"><div className="previous-round-heading"><div><div className="eyebrow">ROUND {summary.round} / {summary.matchup.blue || 'Blue'} VS {summary.matchup.red || 'Red'}</div><strong>{summary.matchup.blue || 'Blue'} vs {summary.matchup.red || 'Red'}</strong></div><span className="previous-round-round">ROUND {summary.round}</span></div><div className="round-battle-card"><div className="round-side round-side-blue"><div className="round-player-name">{summary.matchup.blue || 'Blue'}</div><div className="round-hero-row">{blueBans.map((hero) => <RoundHero key={`blue-ban-${hero.name}`} hero={hero} banned />)}{bluePicks.map(({ hero, protected: protectedSlot }) => <RoundHero key={`blue-pick-${hero.name}`} hero={hero} protectedSlot={protectedSlot} />)}</div><div className="round-extra-row">{bluePostBan && <RoundHero hero={bluePostBan} postBan />}</div></div><div className="round-versus">VS<span>R{summary.round}</span></div><div className="round-side round-side-red"><div className="round-player-name">{summary.matchup.red || 'Red'}</div><div className="round-hero-row">{redPicks.map(({ hero, protected: protectedSlot }) => <RoundHero key={`red-pick-${hero.name}`} hero={hero} protectedSlot={protectedSlot} />)}{redBans.map((hero) => <RoundHero key={`red-ban-${hero.name}`} hero={hero} banned />)}</div><div className="round-extra-row">{redPostBan && <RoundHero hero={redPostBan} postBan />}</div></div></div></section>
 }
 
-function RoundSummaryGroup({ label, heroes, empty }: { label: string; heroes: { hero: Hero; side?: Side; protected?: boolean }[]; empty: string }) {
-  const renderHero = ({ hero, side, protected: protectedSlot }: { hero: Hero; side?: Side; protected?: boolean }) => <div className="previous-round-hero" key={`${label}-${side ?? 'both'}-${hero.name}`}><HeroPortrait hero={hero} variant="s" /><span className="previous-round-hero-name">{hero.name}</span>{side && <small>{protectedSlot ? 'PROTECT SLOT' : `${side.toUpperCase()} PICK`}</small>}</div>
-  const pickColumns = (['blue', 'red'] as Side[]).map((side) => <div className="previous-round-pick-side" key={side}><div className="previous-round-side-label">{side.toUpperCase()}</div><div className="previous-round-hero-list">{heroes.filter((item) => item.side === side).map(renderHero)}</div></div>)
-  return <div className={`previous-round-group ${label === 'PICKS' ? 'picks-group' : ''}`}><div className="eyebrow">{label}</div>{heroes.length > 0 ? label === 'PICKS' ? <div className="previous-round-pick-columns">{pickColumns}</div> : <div className="previous-round-hero-list">{heroes.map(renderHero)}</div> : <span className="previous-round-empty">{empty}</span>}</div>
+function RoundHero({ hero, banned = false, protectedSlot = false, postBan = false }: { hero: Hero; banned?: boolean; protectedSlot?: boolean; postBan?: boolean }) {
+  return <div className={`round-hero ${banned ? 'round-hero-banned' : ''} ${protectedSlot ? 'round-hero-protected' : ''} ${postBan ? 'round-hero-postban' : ''}`} title={hero.name}><HeroPortrait hero={hero} variant="s" />{banned && <span className="round-ban-mark">×</span>}{protectedSlot && <Icon src="_cm_safeguard_glow.png" label="Protected pick" />}</div>
 }
 
 function HeroCard({ hero, currentTurn, draft, unavailableNames, onChoose }: { hero: Hero; currentTurn?: Turn; draft: DraftState; unavailableNames: Set<string>; onChoose: (hero: Hero) => void }) {

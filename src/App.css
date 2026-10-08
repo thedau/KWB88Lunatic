@@ -45,6 +45,26 @@
 .previous-round-group { padding: 14px; }.previous-round-group > .eyebrow { font-size: 11px; }.previous-round-hero-list, .previous-round-group.picks-group .previous-round-hero-list { grid-template-columns: 1fr; gap: 9px; }.previous-round-hero { height: 56px; font-size: 12px; }.previous-round-hero small { font-size: 9px; }.previous-round-hero .hero-portrait { width: 34px; height: 40px; flex-basis: 34px; }
 .previous-round-pick-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }.previous-round-pick-side { min-width: 0; padding: 10px; border: 1px solid #303d4e; background: #202a37; }.previous-round-side-label { margin-bottom: 9px; color: #8eacd0; font: 10px var(--mono); letter-spacing: 1px; }
 @media (max-width: 700px) { .previous-round-pick-columns { grid-template-columns: 1fr; } }
+.round-battle-card { display: grid; grid-template-columns: minmax(0, 1fr) 58px minmax(0, 1fr); align-items: center; gap: 13px; margin-top: 14px; padding: 15px 13px 10px; background: #211d20; border: 1px solid #3b3236; }
+.round-side { min-width: 0; }
+.round-side-red { text-align: right; }
+.round-player-name { margin-bottom: 9px; color: #f0e8e8; font: 11px var(--mono); letter-spacing: .4px; }
+.round-hero-row { display: flex; align-items: center; gap: 8px; min-height: 58px; }
+.round-side-red .round-hero-row { justify-content: flex-end; }
+.round-hero { position: relative; flex: 0 0 52px; width: 52px; height: 52px; border: 2px solid #a7adb5; border-radius: 50%; background: #2e3239; overflow: visible; }
+.round-hero .hero-portrait { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; }
+.round-hero .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.round-hero .hero-portrait b { display: none; }
+.round-hero-banned { border-color: #dc6368; }
+.round-hero-banned::after { content: ''; position: absolute; inset: 2px; border-radius: 50%; background: #d94c5866; pointer-events: none; }
+.round-ban-mark { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; color: #f7a0a0; font: 700 47px/1 var(--display); transform: rotate(-15deg); text-shadow: 0 1px 3px #000; }
+.round-hero .metadata-icon { position: absolute; right: -5px; bottom: -5px; z-index: 3; width: 20px; height: 20px; }
+.round-hero-postban { width: 40px; height: 40px; flex-basis: 40px; border-color: #d77b68; }
+.round-extra-row { display: flex; gap: 8px; min-height: 43px; margin-top: 9px; }
+.round-side-red .round-extra-row { justify-content: flex-end; }
+.round-versus { display: grid; place-items: center; color: #f1eded; font: 700 25px var(--display); }
+.round-versus span { margin-top: 5px; color: #9b858a; font: 9px var(--mono); }
+@media (max-width: 700px) { .round-battle-card { grid-template-columns: 1fr; }.round-versus { order: 2; }.round-side-red { order: 3; text-align: left; }.round-side-red .round-hero-row, .round-side-red .round-extra-row { justify-content: flex-start; }.round-hero-row { flex-wrap: wrap; } }
 .match-score { display: flex; align-items: center; gap: 6px; margin-left: 4px; }.match-score b { min-width: 34px; color: #f0ebe4; font: 15px var(--mono); text-align: center; }.match-score button { border: 1px solid #354255; padding: 8px 9px; background: #202a37; color: #9eabc0; font: 9px var(--mono); cursor: pointer; }.match-score button:hover:not(:disabled) { border-color: #70adff; color: #e5f1ff; }.match-score button:disabled { cursor: not-allowed; opacity: .4; }
 .reset-button { border: 1px solid #3b4656; padding: 8px 11px; background: #202a37; color: #b3bfce; cursor: pointer; }.reset-button:hover:not(:disabled) { border-color: #d84f43; color: #f4e8e4; background: #2a2027; }.reset-button:disabled { cursor: not-allowed; opacity: .4; }
 @keyframes active-slot-pulse { 0%, 100% { box-shadow: 0 0 0 0 #4aa8ff66; } 50% { box-shadow: 0 0 0 4px #4aa8ff22, 0 0 18px #4aa8ff99; } }
