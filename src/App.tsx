@@ -1,18 +1,10 @@
-import { useEffect, useMemo, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import type { DraftSnapshot, DraftState, Hero, MatchScore, Matchup, MatchupHistoryEntry, Phase, Role, RoundSummary, Side, Turn } from './draft'
+import { useLiveRoom } from './useLiveRoom'
+import { LiveRoomPanel, RoundTimer } from './LiveRoomPanel'
 import './App.css'
 
-type Mode = 'normal' | 'lunatic'
-type Side = 'blue' | 'red'
-type Phase = 'preban' | 'pick' | 'postban'
-type Role = 'All' | 'Knight' | 'Soul Weaver' | 'Mage' | 'Ranger' | 'Thief' | 'Warrior'
-type Hero = { name: string; short: string; role: Exclude<Role, 'All'>; element: string; tone: string; id?: string }
-type Turn = { phase: Phase; side: Side; index: number }
-type DraftState = { preBan: Record<Side, (Hero | null)[]>; picks: Record<Side, (Hero | null)[]>; postBan: Record<Side, Hero | null> }
-type Matchup = { blue: string; red: string }
-type RoundPick = { hero: Hero; side: Side; protected: boolean }
-type RoundSummary = { matchup: Matchup; round: number; preBans: Hero[]; picks: RoundPick[]; postBans: { hero: Hero; side: Side }[] }
-type MatchScore = { blue: number; red: number }
-type MatchupHistoryEntry = { matchup: Matchup; score: MatchScore }
+const SpectatorContext = createContext(false)
 
 const assetPath = (file: string) => `${import.meta.env.BASE_URL}assets/e7/${file}`
 const elementIcons: Record<string, string> = {
@@ -73,14 +65,13 @@ function createTurns(preBanCount: number, firstPickSide: Side = 'blue'): Turn[] 
 }
 
 function App() {
-  const [mode, setMode] = useState<Mode>('normal')
   const [gameNumber, setGameNumber] = useState(1)
   const [pairIndex, setPairIndex] = useState(0)
   const [role, setRole] = useState<Role>('All')
   const [element, setElement] = useState('All')
   const [query, setQuery] = useState('')
   const [heroes, setHeroes] = useState<Hero[]>(starterHeroes)
-  const [draft, setDraft] = useState<DraftState>(() => createDraft(2))
+  const [draft, setDraft] = useState<DraftState>(() => createDraft(1))
   const [activeTurn, setActiveTurn] = useState(0)
   const [lockedHeroes, setLockedHeroes] = useState<string[]>([])
   const [persistentBans, setPersistentBans] = useState<string[]>([])
@@ -92,7 +83,27 @@ function App() {
   const [roundWinner, setRoundWinner] = useState<Side | null>(null)
   const [firstPickSide, setFirstPickSide] = useState<Side>('blue')
   const [nextFirstPickSide, setNextFirstPickSide] = useState<Side | null>(null)
-  const preBanCount = mode === 'lunatic' ? 1 : 2
+  const [startedAt, setStartedAt] = useState(Date.now)
+  const snapshot = useMemo<DraftSnapshot>(() => ({ gameNumber, pairIndex, draft, activeTurn, lockedHeroes, persistentBans, banHistory, previousRoundSummaries, matchups, matchScores, matchupHistory, roundWinner, firstPickSide, nextFirstPickSide, startedAt }), [gameNumber, pairIndex, draft, activeTurn, lockedHeroes, persistentBans, banHistory, previousRoundSummaries, matchups, matchScores, matchupHistory, roundWinner, firstPickSide, nextFirstPickSide, startedAt])
+  const applySnapshot = useCallback((state: DraftSnapshot) => {
+    setGameNumber(state.gameNumber)
+    setPairIndex(state.pairIndex)
+    setDraft(state.draft)
+    setActiveTurn(state.activeTurn)
+    setLockedHeroes(state.lockedHeroes)
+    setPersistentBans(state.persistentBans)
+    setBanHistory(state.banHistory)
+    setPreviousRoundSummaries(state.previousRoundSummaries)
+    setMatchups(state.matchups)
+    setMatchScores(state.matchScores)
+    setMatchupHistory(state.matchupHistory)
+    setRoundWinner(state.roundWinner)
+    setFirstPickSide(state.firstPickSide)
+    setNextFirstPickSide(state.nextFirstPickSide)
+    setStartedAt(state.startedAt)
+  }, [])
+  const live = useLiveRoom(snapshot, applySnapshot)
+  const preBanCount = 1
   const turns = useMemo(() => createTurns(preBanCount, firstPickSide), [preBanCount, firstPickSide])
   const currentTurn = turns[activeTurn]
   const activeTurnIndexes = useMemo(() => {
@@ -106,7 +117,7 @@ function App() {
   const currentMatchup = matchups[currentPairIndex] ?? { blue: '', red: '' }
   const currentScore = matchScores[currentPairIndex] ?? { blue: 0, red: 0 }
   const usedNames = useMemo(() => [...draft.preBan.blue, ...draft.preBan.red, ...draft.picks.blue, ...draft.picks.red, draft.postBan.blue, draft.postBan.red].filter(Boolean).map((hero) => hero!.name), [draft])
-  const unavailableNames = new Set([...usedNames, ...persistentBans, ...(mode === 'lunatic' ? lockedHeroes : [])])
+  const unavailableNames = new Set([...usedNames, ...persistentBans, ...lockedHeroes])
   const filteredHeroes = useMemo(() => heroes
     .filter((hero) => hero.name.toLowerCase().includes(query.toLowerCase()) && (role === 'All' || hero.role === role) && (element === 'All' || hero.element === element))
     .sort((a, b) => elementOrder.indexOf(a.element) - elementOrder.indexOf(b.element) || a.name.localeCompare(b.name)), [heroes, query, role, element])
@@ -120,14 +131,15 @@ function App() {
       .catch(() => undefined)
   }, [])
 
-  const resetDraft = () => { setDraft(createDraft(preBanCount)); setActiveTurn(0); setRoundWinner(null) }
+  const resetDraft = () => { setDraft(createDraft(preBanCount)); setActiveTurn(0); setRoundWinner(null); setStartedAt(Date.now()) }
   const resetGame = () => {
+    if (live.spectator) return
     if (!window.confirm('Reset current round and match score? All picks, bans, and the current pair score will be cleared.')) return
     resetDraft()
     setMatchScores((current) => current.map((score, index) => index === currentPairIndex ? { blue: 0, red: 0 } : score))
   }
   const startNextGame = () => {
-    if (mode !== 'lunatic') return resetGame()
+    if (live.spectator) return
     if (gameNumber >= 15) return
     if (!roundWinner) return
     const gamePicks = (['blue', 'red'] as Side[]).flatMap((side) => draft.picks[side].flatMap((hero, index) => hero ? [{ hero, side, protected: index === 2 }] : []))
@@ -152,14 +164,14 @@ function App() {
   }
 
   const recordWin = (side: Side) => {
-    if (mode !== 'lunatic' || currentTurn || roundWinner) return
+    if (live.spectator || currentTurn || roundWinner) return
     setRoundWinner(side)
     setNextFirstPickSide(null)
     setMatchScores((current) => current.map((score, index) => index === currentPairIndex ? { ...score, [side]: Math.min(2, score[side] + 1) } : score))
   }
 
   const chooseHero = (hero: Hero) => {
-    if (!currentTurn) return
+    if (live.spectator || !currentTurn) return
     const bannedTurnIndex = turns.findIndex((turn) => turn.phase === 'preban' && draft.preBan[turn.side][turn.index]?.name === hero.name)
     if (currentTurn.phase !== 'postban' && bannedTurnIndex >= 0) {
       setActiveTurn(bannedTurnIndex)
@@ -214,6 +226,7 @@ function App() {
   }
 
   const selectSlot = (turnIndex: number, slotHero?: Hero) => {
+    if (live.spectator) return
     const turn = turns[turnIndex]
     if (!turn) return
     if (currentTurn?.phase === 'postban' && turn.phase === 'postban') {
@@ -246,39 +259,21 @@ function App() {
     setActiveTurn(turnIndex)
   }
 
-  const changeMode = (nextMode: Mode) => {
-    setMode(nextMode)
-    setGameNumber(1)
-    setPairIndex(0)
-    setLockedHeroes([])
-    setPersistentBans([])
-    setBanHistory([])
-    setPreviousRoundSummaries([])
-    setMatchups(Array.from({ length: 5 }, () => ({ blue: '', red: '' })))
-    setMatchScores(Array.from({ length: 5 }, () => ({ blue: 0, red: 0 })))
-    setRoundWinner(null)
-    setFirstPickSide('blue')
-    setNextFirstPickSide(null)
-    setMatchupHistory([])
-    setDraft(createDraft(nextMode === 'normal' ? 2 : 1))
-    setActiveTurn(0)
-  }
-
   return (
-    <main className="app-shell">
+    <SpectatorContext value={live.spectator}><main className="app-shell">
       <header className="topbar">
         <div className="brand-lockup"><div className="brand-mark">E7</div><div><strong>ARENA DRAFT</strong><span>Competitive suite</span></div></div>
-        <div className="match-status"><span className="status-dot" /> ROOM 0824 <b>•</b> {mode === 'lunatic' ? `PAIR ${currentPairIndex + 1} / BO3 / R${gameNumber}` : 'UNRANKED'}</div>
+        <div className="match-status">LUNATIC <b>•</b> PAIR {currentPairIndex + 1} / BO3 / R{gameNumber}</div>
         <button type="button" className="icon-button" aria-label="Open settings">•••</button>
       </header>
       <section className="workspace-head">
-        <div><div className="eyebrow">RTA MATCH ROOM / {mode === 'lunatic' ? `PAIR ${currentPairIndex + 1} OF 5 / ROUND ${gameNumber} OF 15` : 'PREPARATION'}</div><h1>KWB <span>Draft</span></h1><p>{mode === 'lunatic' ? 'Five player pairs, each playing a best-of-three.' : 'Pre-ban, first pick, protection and post-ban in one room.'}</p></div>
-        <div className="mode-switch" aria-label="Draft mode"><button type="button" className={mode === 'normal' ? 'active' : ''} onClick={() => changeMode('normal')}>Normal</button><button type="button" className={mode === 'lunatic' ? 'active lunatic' : ''} onClick={() => changeMode('lunatic')}>Lunatic <i>+</i></button></div>
+        <div><div className="eyebrow">RTA MATCH ROOM / PAIR {currentPairIndex + 1} OF 5 / ROUND {gameNumber} OF 15</div><h1>KWB <span>Draft</span></h1><p>Five player pairs, each playing a best-of-three.</p></div>
+        <span className="lunatic-badge">LUNATIC</span>
       </section>
-      {mode === 'lunatic' && <section className="matchup-panel"><div><div className="eyebrow">PAIR {currentPairIndex + 1} OF 5 / BEST OF THREE</div><strong>Enter the matchup</strong></div><label><span>BLUE SIDE</span><input value={currentMatchup.blue} onChange={(event) => setMatchups((current) => current.map((matchup, index) => index === currentPairIndex ? { ...matchup, blue: event.target.value } : matchup))} placeholder="Player name" /></label><b className="matchup-vs">VS</b><label><span>RED SIDE</span><input value={currentMatchup.red} onChange={(event) => setMatchups((current) => current.map((matchup, index) => index === currentPairIndex ? { ...matchup, red: event.target.value } : matchup))} placeholder="Player name" /></label><div className="first-pick-control"><span>FIRST PICK</span>      <button type="button" className={firstPickSide === 'blue' ? 'selected' : ''} onClick={() => !draft.picks.blue.some(Boolean) && !draft.picks.red.some(Boolean) && setFirstPickSide('blue')}>{currentMatchup.blue || 'BLUE SIDE'}</button><button type="button" className={firstPickSide === 'red' ? 'selected' : ''} onClick={() => !draft.picks.blue.some(Boolean) && !draft.picks.red.some(Boolean) && setFirstPickSide('red')}>{currentMatchup.red || 'RED SIDE'}</button></div><div className="match-score"><b>{currentScore.blue} - {currentScore.red}</b>      <button type="button" onClick={() => recordWin('blue')} disabled={Boolean(currentTurn) || Boolean(roundWinner) || currentScore.blue >= 2}>{currentMatchup.blue || 'BLUE SIDE'} WIN</button><button type="button" onClick={() => recordWin('red')} disabled={Boolean(currentTurn) || Boolean(roundWinner) || currentScore.red >= 2}>{currentMatchup.red || 'RED SIDE'} WIN</button></div>{roundWinner && <div className="next-first-pick"><span>{roundWinner === 'blue' ? 'RED' : 'BLUE'} SIDE CHOOSES FIRST PICK</span><button type="button" className={nextFirstPickSide === (roundWinner === 'blue' ? 'red' : 'blue') ? 'selected' : ''} onClick={() => setNextFirstPickSide(roundWinner === 'blue' ? 'red' : 'blue')}>PICK FIRST</button><button type="button" className={nextFirstPickSide === roundWinner ? 'selected' : ''} onClick={() => setNextFirstPickSide(roundWinner)}>PICK SECOND</button></div>}{matchupHistory.length > 0 && <div className="matchup-history">{matchupHistory.map(({ matchup, score }, index) => <span key={`${matchup.blue}-${matchup.red}-${index}`}>PAIR {index + 1}: {matchup.blue || 'Blue'} vs {matchup.red || 'Red'} / {score.blue} - {score.red}</span>)}</div>}</section>}
-      {mode === 'normal' && <div className="normal-first-pick first-pick-control"><span>FIRST PICK</span><button type="button" className={firstPickSide === 'blue' ? 'selected' : ''} onClick={() => !draft.picks.blue.some(Boolean) && !draft.picks.red.some(Boolean) && setFirstPickSide('blue')}>BLUE</button><button type="button" className={firstPickSide === 'red' ? 'selected' : ''} onClick={() => !draft.picks.blue.some(Boolean) && !draft.picks.red.some(Boolean) && setFirstPickSide('red')}>RED</button></div>}
+      <LiveRoomPanel live={live} />
+      <fieldset className="matchup-panel" disabled={live.spectator}><div><div className="eyebrow">PAIR {currentPairIndex + 1} OF 5 / BEST OF THREE</div><strong>Enter the matchup</strong></div><label><span>BLUE SIDE</span><input value={currentMatchup.blue} onChange={(event) => setMatchups((current) => current.map((matchup, index) => index === currentPairIndex ? { ...matchup, blue: event.target.value } : matchup))} placeholder="Player name" /></label><b className="matchup-vs">VS</b><label><span>RED SIDE</span><input value={currentMatchup.red} onChange={(event) => setMatchups((current) => current.map((matchup, index) => index === currentPairIndex ? { ...matchup, red: event.target.value } : matchup))} placeholder="Player name" /></label><div className="first-pick-control"><span>FIRST PICK</span>      <button type="button" className={firstPickSide === 'blue' ? 'selected' : ''} onClick={() => !draft.picks.blue.some(Boolean) && !draft.picks.red.some(Boolean) && setFirstPickSide('blue')}>{currentMatchup.blue || 'BLUE SIDE'}</button><button type="button" className={firstPickSide === 'red' ? 'selected' : ''} onClick={() => !draft.picks.blue.some(Boolean) && !draft.picks.red.some(Boolean) && setFirstPickSide('red')}>{currentMatchup.red || 'RED SIDE'}</button></div><div className="match-score"><b>{currentScore.blue} - {currentScore.red}</b>      <button type="button" onClick={() => recordWin('blue')} disabled={Boolean(currentTurn) || Boolean(roundWinner) || currentScore.blue >= 2}>{currentMatchup.blue || 'BLUE SIDE'} WIN</button><button type="button" onClick={() => recordWin('red')} disabled={Boolean(currentTurn) || Boolean(roundWinner) || currentScore.red >= 2}>{currentMatchup.red || 'RED SIDE'} WIN</button></div>{roundWinner && <div className="next-first-pick"><span>{roundWinner === 'blue' ? 'RED' : 'BLUE'} SIDE CHOOSES FIRST PICK</span><button type="button" className={nextFirstPickSide === (roundWinner === 'blue' ? 'red' : 'blue') ? 'selected' : ''} onClick={() => setNextFirstPickSide(roundWinner === 'blue' ? 'red' : 'blue')}>PICK FIRST</button><button type="button" className={nextFirstPickSide === roundWinner ? 'selected' : ''} onClick={() => setNextFirstPickSide(roundWinner)}>PICK SECOND</button></div>}{matchupHistory.length > 0 && <div className="matchup-history">{matchupHistory.map(({ matchup, score }, index) => <span key={`${matchup.blue}-${matchup.red}-${index}`}>PAIR {index + 1}: {matchup.blue || 'Blue'} vs {matchup.red || 'Red'} / {score.blue} - {score.red}</span>)}</div>}</fieldset>
       <section className="draft-card">
-        <div className="draft-head"><div><span className="live-kicker"><span className="live-dot" /> {currentTurn ? currentTurn.phase.toUpperCase() : 'DRAFT COMPLETE'}</span><strong>{currentTurn ? `${currentTurn.side === 'blue' ? 'Blue' : 'Red'} Side to ${currentTurn.phase === 'preban' ? 'pre-ban' : currentTurn.phase === 'pick' ? 'pick' : 'post-ban'}` : gameNumber >= 15 ? 'Tournament complete' : 'Round complete'}</strong></div><div className="draft-meta"><span>TURN <b>{currentTurn ? activeTurn + 1 : turns.length}</b> / {turns.length}</span><span className="timer">00:28</span><button type="button" className="reset-button" onClick={resetGame}>Reset</button>{mode === 'lunatic' && gameNumber < 15 && <button type="button" className="reset-button" onClick={startNextGame} disabled={!roundWinner || (currentScore.blue < 2 && currentScore.red < 2 && !nextFirstPickSide)}>{currentScore.blue >= 2 || currentScore.red >= 2 ? 'Next pair' : 'Next round'}</button>}</div></div>
+        <div className="draft-head"><div><span className="live-kicker"><span className="live-dot" /> {currentTurn ? currentTurn.phase.toUpperCase() : 'DRAFT COMPLETE'}</span><strong>{currentTurn ? `${currentTurn.side === 'blue' ? 'Blue' : 'Red'} Side to ${currentTurn.phase === 'preban' ? 'pre-ban' : currentTurn.phase === 'pick' ? 'pick' : 'post-ban'}` : gameNumber >= 15 ? 'Tournament complete' : 'Round complete'}</strong></div><div className="draft-meta"><span>TURN <b>{currentTurn ? activeTurn + 1 : turns.length}</b> / {turns.length}</span><RoundTimer startedAt={startedAt} /><button type="button" className="reset-button" onClick={resetGame} disabled={live.spectator}>Reset</button>{gameNumber < 15 && <button type="button" className="reset-button" onClick={startNextGame} disabled={live.spectator || !roundWinner || (currentScore.blue < 2 && currentScore.red < 2 && !nextFirstPickSide)}>{currentScore.blue >= 2 || currentScore.red >= 2 ? 'Next pair' : 'Next round'}</button>}</div></div>
         <div className="turn-track">{turns.map((turn, index) => <div key={`${turn.phase}-${turn.side}-${turn.index}`} className={`turn-step ${index < activeTurn ? 'done' : ''} ${index === activeTurn ? 'current' : ''}`}><span>{turn.phase === 'preban' ? 'B' : turn.phase === 'pick' ? 'P' : 'PB'}{turn.index + 1}</span><i /></div>)}</div>
         <BanStrip draft={draft} banHistory={banHistory} activeTurn={currentTurn} onSlot={selectSlot} firstPickSide={firstPickSide} />
         <div className="arena-body">
@@ -291,9 +286,9 @@ function App() {
           <DraftTeam name={currentMatchup.red || 'RED SIDE'} accent="red" slots={draft} side="red" activeTurnIndexes={activeTurnIndexes} onSlot={selectSlot} firstPickSide={firstPickSide} />
         </div>
       </section>
-      {mode === 'lunatic' && previousRoundSummaries.length > 0 && <div className="previous-round-history">{previousRoundSummaries.map((summary) => <PreviousRoundSummary key={`${summary.round}-${summary.matchup.blue}-${summary.matchup.red}`} summary={summary} />)}</div>}
-      <footer><span>EPIC SEVEN / {mode === 'lunatic' ? '5 PAIRS / BO3' : 'DRAFT PROTOCOL'} / 5v5</span><span><b className="footer-dot" /> {mode === 'lunatic' ? `${persistentBans.length} ACTIVE PRE-BANS` : 'ALL SYSTEMS NOMINAL'}</span></footer>
-    </main>
+      {previousRoundSummaries.length > 0 && <div className="previous-round-history">{previousRoundSummaries.map((summary) => <PreviousRoundSummary key={`${summary.round}-${summary.matchup.blue}-${summary.matchup.red}`} summary={summary} />)}</div>}
+      <footer><span>EPIC SEVEN / 5 PAIRS / BO3 / 5v5</span><span><b className="footer-dot" /> {persistentBans.length} LOCKED HEROES</span></footer>
+    </main></SpectatorContext>
   )
 }
 
@@ -313,6 +308,7 @@ function RoundHero({ hero, banned = false, protectedSlot = false, postBan = fals
 }
 
 function HeroCard({ hero, currentTurn, draft, unavailableNames, onChoose }: { hero: Hero; currentTurn?: Turn; draft: DraftState; unavailableNames: Set<string>; onChoose: (hero: Hero) => void }) {
+  const spectator = useContext(SpectatorContext)
   const opponent = currentTurn?.side === 'blue' ? 'red' : 'blue'
   const postBanTarget = currentTurn?.phase === 'postban' && draft.picks[opponent].some((pick, index) => pick?.name === hero.name && index !== 2)
   const protectedHero = currentTurn?.phase === 'postban' && draft.picks[opponent][2]?.name === hero.name
@@ -321,7 +317,7 @@ function HeroCard({ hero, currentTurn, draft, unavailableNames, onChoose }: { he
   const postBanHero = draft.postBan.blue?.name === hero.name || draft.postBan.red?.name === hero.name
   const disabled = currentTurn?.phase === 'postban' ? (!postBanHero && (!postBanTarget || protectedHero)) : bannedHero || pickedHero ? false : unavailableNames.has(hero.name)
   const selectableHero = currentTurn?.phase === 'postban' ? Boolean(postBanTarget && !protectedHero) : !disabled && !bannedHero && !pickedHero && !postBanHero
-  return <button type="button" disabled={disabled} className={`hero-tile ${selectableHero ? 'pickable' : ''} ${bannedHero ? 'banned' : ''} ${disabled && currentTurn?.phase !== 'postban' ? 'chosen' : ''} ${pickedHero || postBanHero ? 'selected' : ''} ${protectedHero ? 'protected' : ''}`} onClick={() => onChoose(hero)}><HeroPortrait hero={hero} /><span className="hero-info"><b>{hero.name}</b><small>{roleIcons[hero.role] && <Icon src={roleIcons[hero.role]} label={hero.role} />} {elementIcons[hero.element] && <Icon src={elementIcons[hero.element]} label={hero.element} />}</small></span>{protectedHero ? <em>PROTECTED</em> : disabled && currentTurn?.phase !== 'postban' && <em>✓</em>}</button>
+  return <button type="button" disabled={spectator || !currentTurn || disabled} title={hero.name} className={`hero-tile ${selectableHero ? 'pickable' : ''} ${bannedHero ? 'banned' : ''} ${disabled && currentTurn?.phase !== 'postban' ? 'chosen' : ''} ${pickedHero || postBanHero ? 'selected' : ''} ${protectedHero ? 'protected' : ''}`} onClick={() => onChoose(hero)}><HeroPortrait hero={hero} /><span className="hero-info"><b>{hero.name}</b><small>{roleIcons[hero.role] && <Icon src={roleIcons[hero.role]} label={hero.role} />} {elementIcons[hero.element] && <Icon src={elementIcons[hero.element]} label={hero.element} />}</small></span>{protectedHero ? <em>PROTECTED</em> : disabled && currentTurn?.phase !== 'postban' && <em>✓</em>}</button>
 }
 
 function BanStrip({ draft, banHistory, activeTurn, onSlot, firstPickSide }: { draft: DraftState; banHistory: Hero[]; activeTurn?: Turn; onSlot: (turnIndex: number) => void; firstPickSide: Side }) {
@@ -337,7 +333,8 @@ function DraftTeam({ name, accent, slots, side, activeTurnIndexes, onSlot, first
 }
 
 function Slot({ type, hero, active, protectedSlot, onSlot }: { type: 'ban' | 'pick' | 'postban'; hero: Hero | null; active: boolean; protectedSlot?: boolean; onSlot: () => void }) {
-  return <button type="button" className={`draft-slot ${type} ${active ? 'active' : ''} ${hero ? 'filled' : ''} ${protectedSlot ? 'protection' : ''}`} onClick={onSlot}>{hero ? <><HeroPortrait hero={hero} variant={type === 'ban' ? 's' : 'l'} />{protectedSlot && <Icon src="_cm_safeguard_glow.png" label="Protected slot" />}<b>{hero.name}</b></> : <><strong>{protectedSlot ? <Icon src="_cm_safeguard_glow.png" label="Protected slot" /> : type === 'ban' || type === 'postban' ? '×' : '+'}</strong><small>{protectedSlot ? 'SAFE' : type === 'postban' ? 'POST-BAN' : type.toUpperCase()}</small></>}</button>
+  const spectator = useContext(SpectatorContext)
+  return <button type="button" disabled={spectator} aria-label={`${type}: ${hero?.name ?? 'Empty slot'}`} className={`draft-slot ${type} ${active ? 'active' : ''} ${hero ? 'filled' : ''} ${protectedSlot ? 'protection' : ''}`} onClick={onSlot}>{hero ? <><HeroPortrait hero={hero} variant={type === 'ban' ? 's' : 'l'} />{protectedSlot && <Icon src="_cm_safeguard_glow.png" label="Protected slot" />}<b>{hero.name}</b></> : <><strong>{protectedSlot ? <Icon src="_cm_safeguard_glow.png" label="Protected slot" /> : type === 'ban' || type === 'postban' ? '×' : '+'}</strong><small>{protectedSlot ? 'SAFE' : type === 'postban' ? 'POST-BAN' : type.toUpperCase()}</small></>}</button>
 }
 
 function Icon({ src, label, className = '' }: { src: string; label: string; className?: string }) {
