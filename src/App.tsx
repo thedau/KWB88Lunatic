@@ -1,6 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { DraftSnapshot, DraftState, Hero, MatchScore, Matchup, MatchupHistoryEntry, Phase, Role, RoundSummary, Side, Turn } from './draft'
 import { PRE_BANS_PER_SIDE } from './draft'
+import { canPostBanHero, getHeroCooldowns, isProtectedPick, pickAvailabilityRound, pickCooldownRounds, summarizeRound } from './draftRules'
+import type { HeroCooldown } from './draftRules'
 import { useLiveRoom } from './useLiveRoom'
 import { LiveRoomPanel, RoundTimer } from './LiveRoomPanel'
 import './App.css'
@@ -74,10 +76,12 @@ function App() {
   const [heroes, setHeroes] = useState<Hero[]>(starterHeroes)
   const [draft, setDraft] = useState<DraftState>(() => createDraft(PRE_BANS_PER_SIDE))
   const [activeTurn, setActiveTurn] = useState(0)
-  const [lockedHeroes, setLockedHeroes] = useState<string[]>([])
-  const [persistentBans, setPersistentBans] = useState<string[]>([])
   const [banHistory, setBanHistory] = useState<Hero[]>([])
   const [previousRoundSummaries, setPreviousRoundSummaries] = useState<RoundSummary[]>([])
+  const cooldowns = useMemo(() => getHeroCooldowns(previousRoundSummaries, gameNumber), [previousRoundSummaries, gameNumber])
+  const cooldownByName = useMemo(() => new Map(cooldowns.map((cooldown) => [cooldown.hero.name, cooldown])), [cooldowns])
+  const lockedHeroes = useMemo(() => cooldowns.map(({ hero }) => hero.name), [cooldowns])
+  const persistentBans = useMemo(() => [...new Set([...banHistory.map((hero) => hero.name), ...lockedHeroes])], [banHistory, lockedHeroes])
   const [matchups, setMatchups] = useState<Matchup[]>(() => Array.from({ length: 5 }, () => ({ blue: '', red: '' })))
   const [matchScores, setMatchScores] = useState<MatchScore[]>(() => Array.from({ length: 5 }, () => ({ blue: 0, red: 0 })))
   const [matchupHistory, setMatchupHistory] = useState<MatchupHistoryEntry[]>([])
@@ -91,8 +95,6 @@ function App() {
     setPairIndex(state.pairIndex)
     setDraft(state.draft)
     setActiveTurn(state.activeTurn)
-    setLockedHeroes(state.lockedHeroes)
-    setPersistentBans(state.persistentBans)
     setBanHistory(state.banHistory)
     setPreviousRoundSummaries(state.previousRoundSummaries)
     setMatchups(state.matchups)
@@ -143,18 +145,11 @@ function App() {
     if (live.spectator) return
     if (gameNumber >= 15) return
     if (!roundWinner) return
-    const gamePicks = (['blue', 'red'] as Side[]).flatMap((side) => draft.picks[side].flatMap((hero, index) => hero ? [{ hero, side, protected: index === 2 }] : []))
-    const gamePickNames = gamePicks.map(({ hero }) => hero.name)
-    const roundPreBans = (['blue', 'red'] as Side[]).flatMap((side) => draft.preBan[side].filter((hero): hero is Hero => Boolean(hero)))
-    const roundPostBans = (['blue', 'red'] as Side[]).flatMap((side) => draft.postBan[side] ? [{ hero: draft.postBan[side]!, side }] : [])
     const nextHistory = [...banHistory, ...draft.preBan.blue, ...draft.preBan.red].filter((hero): hero is Hero => Boolean(hero)).slice(-10)
     const pairComplete = currentScore.blue >= 2 || currentScore.red >= 2
     if (pairComplete && currentPairIndex >= 4) return
-    const nextLockedHeroes = pairComplete ? [] : [...new Set(gamePickNames)]
     const selectedFirstPick = nextFirstPickSide ?? firstPickSide
-    setPreviousRoundSummaries((current) => [...current, { matchup: currentMatchup, round: gameNumber, preBans: roundPreBans, picks: gamePicks, postBans: roundPostBans }])
-    setLockedHeroes(nextLockedHeroes)
-    setPersistentBans([...new Set([...nextHistory.map((hero) => hero.name), ...nextLockedHeroes])])
+    setPreviousRoundSummaries((current) => [...current, summarizeRound(draft, currentMatchup, gameNumber)])
     setBanHistory(nextHistory)
     setFirstPickSide(selectedFirstPick)
     setNextFirstPickSide(null)
@@ -203,8 +198,7 @@ function App() {
       return
     }
     if (currentTurn.phase === 'postban') {
-      const opponent = currentTurn.side === 'blue' ? 'red' : 'blue'
-      if (!draft.picks[opponent].some((pick, index) => pick?.name === hero.name && index !== 2)) return
+      if (!canPostBanHero(draft, currentTurn.side, hero.name, gameNumber)) return
     } else {
       const currentSlotHero = currentTurn.phase === 'preban' ? draft.preBan[currentTurn.side][currentTurn.index] : draft.picks[currentTurn.side][currentTurn.index]
       if (unavailableNames.has(hero.name) && currentSlotHero?.name !== hero.name) return
@@ -235,12 +229,10 @@ function App() {
       setActiveTurn(turnIndex)
       return
     }
-    if (currentTurn?.phase === 'postban' && turn.phase === 'pick' && turn.index === 2) return
-    if (currentTurn?.phase === 'postban' && turn.phase === 'pick' && turn.index !== 2) {
+    if (currentTurn?.phase === 'postban' && turn.phase === 'pick') {
       const targetHero = slotHero ?? draft.picks[turn.side][turn.index]
       if (!targetHero) return
-      setDraft((current) => ({ ...current, postBan: { ...current.postBan, [currentTurn.side]: targetHero } }))
-      setActiveTurn((current) => current + 1)
+      chooseHero(targetHero)
       return
     }
     if (turn.phase === 'postban' && draft.postBan[turn.side]) {
@@ -260,6 +252,8 @@ function App() {
     setActiveTurn(turnIndex)
   }
 
+  const visibleRoundSummaries = roundWinner ? [...previousRoundSummaries, summarizeRound(draft, currentMatchup, gameNumber)] : previousRoundSummaries
+
   return (
     <SpectatorContext value={live.spectator}><main className="app-shell">
       <header className="topbar">
@@ -272,53 +266,78 @@ function App() {
         <span className="lunatic-badge">LUNATIC</span>
       </section>
       <LiveRoomPanel live={live} />
+      <div className={`round-rules ${gameNumber === 15 ? 'no-protection' : ''}`}><strong>ROUND {gameNumber}</strong><span>Hero pick ở round này nghỉ {pickCooldownRounds(gameNumber)} round · Dùng lại từ R{pickAvailabilityRound(gameNumber)}</span><span>{gameNumber === 15 ? 'KHÔNG PROTECTION · Cả 5 slot đều có thể bị ban' : 'PROTECTION · Slot 3 được bảo vệ'}</span></div>
       <fieldset className="matchup-panel" disabled={live.spectator}><div><div className="eyebrow">PAIR {currentPairIndex + 1} OF 5 / BEST OF THREE</div><strong>Enter the matchup</strong></div><label><span>BLUE SIDE</span><input value={currentMatchup.blue} onChange={(event) => setMatchups((current) => current.map((matchup, index) => index === currentPairIndex ? { ...matchup, blue: event.target.value } : matchup))} placeholder="Player name" /></label><b className="matchup-vs">VS</b><label><span>RED SIDE</span><input value={currentMatchup.red} onChange={(event) => setMatchups((current) => current.map((matchup, index) => index === currentPairIndex ? { ...matchup, red: event.target.value } : matchup))} placeholder="Player name" /></label><div className="first-pick-control"><span>FIRST PICK</span>      <button type="button" className={firstPickSide === 'blue' ? 'selected' : ''} onClick={() => !draft.picks.blue.some(Boolean) && !draft.picks.red.some(Boolean) && setFirstPickSide('blue')}>{currentMatchup.blue || 'BLUE SIDE'}</button><button type="button" className={firstPickSide === 'red' ? 'selected' : ''} onClick={() => !draft.picks.blue.some(Boolean) && !draft.picks.red.some(Boolean) && setFirstPickSide('red')}>{currentMatchup.red || 'RED SIDE'}</button></div><div className="match-score"><b>{currentScore.blue} - {currentScore.red}</b>      <button type="button" onClick={() => recordWin('blue')} disabled={Boolean(currentTurn) || Boolean(roundWinner) || currentScore.blue >= 2}>{currentMatchup.blue || 'BLUE SIDE'} WIN</button><button type="button" onClick={() => recordWin('red')} disabled={Boolean(currentTurn) || Boolean(roundWinner) || currentScore.red >= 2}>{currentMatchup.red || 'RED SIDE'} WIN</button></div>{roundWinner && <div className="next-first-pick"><span>{roundWinner === 'blue' ? 'RED' : 'BLUE'} SIDE CHOOSES FIRST PICK</span><button type="button" className={nextFirstPickSide === (roundWinner === 'blue' ? 'red' : 'blue') ? 'selected' : ''} onClick={() => setNextFirstPickSide(roundWinner === 'blue' ? 'red' : 'blue')}>PICK FIRST</button><button type="button" className={nextFirstPickSide === roundWinner ? 'selected' : ''} onClick={() => setNextFirstPickSide(roundWinner)}>PICK SECOND</button></div>}{matchupHistory.length > 0 && <div className="matchup-history">{matchupHistory.map(({ matchup, score }, index) => <span key={`${matchup.blue}-${matchup.red}-${index}`}>PAIR {index + 1}: {matchup.blue || 'Blue'} vs {matchup.red || 'Red'} / {score.blue} - {score.red}</span>)}</div>}</fieldset>
       <section className="draft-card">
         <div className="draft-head"><div><span className="live-kicker"><span className="live-dot" /> {currentTurn ? currentTurn.phase.toUpperCase() : 'DRAFT COMPLETE'}</span><strong>{currentTurn ? `${currentTurn.side === 'blue' ? 'Blue' : 'Red'} Side to ${currentTurn.phase === 'preban' ? 'pre-ban' : currentTurn.phase === 'pick' ? 'pick' : 'post-ban'}` : gameNumber >= 15 ? 'Tournament complete' : 'Round complete'}</strong></div><div className="draft-meta"><span>TURN <b>{currentTurn ? activeTurn + 1 : turns.length}</b> / {turns.length}</span><RoundTimer startedAt={startedAt} /><button type="button" className="reset-button" onClick={resetGame} disabled={live.spectator}>Reset</button>{gameNumber < 15 && <button type="button" className="reset-button" onClick={startNextGame} disabled={live.spectator || !roundWinner || (currentScore.blue < 2 && currentScore.red < 2 && !nextFirstPickSide)}>{currentScore.blue >= 2 || currentScore.red >= 2 ? 'Next pair' : 'Next round'}</button>}</div></div>
         <div className="turn-track">{turns.map((turn, index) => <div key={`${turn.phase}-${turn.side}-${turn.index}`} className={`turn-step ${index < activeTurn ? 'done' : ''} ${index === activeTurn ? 'current' : ''}`}><span>{turn.phase === 'preban' ? 'B' : turn.phase === 'pick' ? 'P' : 'PB'}{turn.index + 1}</span><i /></div>)}</div>
         <BanStrip draft={draft} banHistory={banHistory} activeTurn={currentTurn} onSlot={selectSlot} firstPickSide={firstPickSide} />
         <div className="arena-body">
-          <DraftTeam name={currentMatchup.blue || 'BLUE SIDE'} accent="blue" slots={draft} side="blue" activeTurnIndexes={activeTurnIndexes} onSlot={selectSlot} firstPickSide={firstPickSide} />
+          <DraftTeam name={currentMatchup.blue || 'BLUE SIDE'} accent="blue" slots={draft} side="blue" activeTurnIndexes={activeTurnIndexes} onSlot={selectSlot} firstPickSide={firstPickSide} gameNumber={gameNumber} />
           <section className="pool-section">
             <div className="pool-head"><div><div className="eyebrow">AVAILABLE ROSTER / {heroes.length} HEROES</div><h2>{currentTurn?.phase === 'postban' ? 'Choose a threat to remove' : 'Choose your heroes'}</h2></div><span className="pool-count">{filteredHeroes.length} / {heroes.length} heroes</span></div>
             <div className="controls"><label className="search-box"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search hero..." /></label><div className="filter-groups"><FilterGroup label="Element"><div className="filter-options">{elements.map((item) => <button type="button" key={item} className={`filter-option ${element === item ? 'active' : ''}`} aria-label={item === 'All' ? 'All elements' : item} title={item === 'All' ? 'All elements' : item} onClick={() => setElement((current) => current === item ? 'All' : item)}>{item === 'All' ? 'All' : <Icon src={elementIcons[item]} label={item} />}</button>)}</div></FilterGroup><FilterGroup label="Class"><div className="filter-options">{roles.map((item) => <button type="button" key={item} className={`filter-option ${role === item ? 'active' : ''}`} aria-label={item === 'All' ? 'All classes' : item} title={item === 'All' ? 'All classes' : item} onClick={() => setRole((current) => current === item ? 'All' : item)}>{item === 'All' ? 'All' : <Icon src={roleIcons[item]} label={item} />}</button>)}</div></FilterGroup></div></div>
-            <div className="hero-grid">{filteredHeroes.map((hero) => <HeroCard key={hero.name} hero={hero} currentTurn={currentTurn} draft={draft} unavailableNames={unavailableNames} onChoose={chooseHero} />)}</div>
+            <div className="hero-grid">{filteredHeroes.map((hero) => <HeroCard key={hero.name} hero={hero} currentTurn={currentTurn} draft={draft} unavailableNames={unavailableNames} onChoose={chooseHero} gameNumber={gameNumber} cooldown={cooldownByName.get(hero.name)} />)}</div>
           </section>
-          <DraftTeam name={currentMatchup.red || 'RED SIDE'} accent="red" slots={draft} side="red" activeTurnIndexes={activeTurnIndexes} onSlot={selectSlot} firstPickSide={firstPickSide} />
+          <DraftTeam name={currentMatchup.red || 'RED SIDE'} accent="red" slots={draft} side="red" activeTurnIndexes={activeTurnIndexes} onSlot={selectSlot} firstPickSide={firstPickSide} gameNumber={gameNumber} />
         </div>
       </section>
-      {previousRoundSummaries.length > 0 && <div className="previous-round-history">{previousRoundSummaries.map((summary) => <PreviousRoundSummary key={`${summary.round}-${summary.matchup.blue}-${summary.matchup.red}`} summary={summary} />)}</div>}
+      <CooldownPanel cooldowns={cooldowns} gameNumber={gameNumber} />
+      {visibleRoundSummaries.length > 0 && <div className="previous-round-history">{visibleRoundSummaries.map((summary) => <PreviousRoundSummary key={`${summary.round}-${summary.matchup.blue}-${summary.matchup.red}`} summary={summary} gameNumber={gameNumber} />)}</div>}
       <footer><span>EPIC SEVEN / 5 PAIRS / BO3 / 5v5</span><span><b className="footer-dot" /> {persistentBans.length} LOCKED HEROES</span></footer>
     </main></SpectatorContext>
   )
 }
 
-function PreviousRoundSummary({ summary }: { summary: RoundSummary }) {
-  const bluePicks = summary.picks.filter((pick) => pick.side === 'blue')
-  const redPicks = summary.picks.filter((pick) => pick.side === 'red')
+function CooldownPanel({ cooldowns, gameNumber }: { cooldowns: HeroCooldown[]; gameNumber: number }) {
+  return <section className="cooldown-panel" aria-label="Hero cooldowns">
+    <div className="cooldown-heading"><h2>Hero đang cooldown</h2><span>ROUND {gameNumber} · {cooldowns.length} hero</span></div>
+    <p className="cooldown-help">Mốc dùng lại tính theo cooldown. Hero bị preban vẫn không được chọn.</p>
+    {cooldowns.length ? <div className="cooldown-list">{cooldowns.map(({ hero, usedRound, availableRound }) => <article className="cooldown-entry" key={hero.name} data-hero={hero.name}>
+      <HeroPortrait hero={hero} /><div><strong>{hero.name}</strong><span>Đã dùng ở round {usedRound}</span><b>Dùng lại từ round {availableRound}</b></div>
+    </article>)}</div> : <p className="cooldown-empty">Không có hero đang cooldown.</p>}
+  </section>
+}
+
+function PreviousRoundSummary({ summary, gameNumber }: { summary: RoundSummary; gameNumber: number }) {
   const banHalf = Math.ceil(summary.preBans.length / 2)
-  const blueBans = summary.preBans.slice(0, banHalf)
-  const redBans = summary.preBans.slice(banHalf)
-  const bluePostBan = summary.postBans.find((ban) => ban.side === 'blue')?.hero
-  const redPostBan = summary.postBans.find((ban) => ban.side === 'red')?.hero
-  return <section className="previous-round-picks"><div className="previous-round-heading"><div><div className="eyebrow">ROUND {summary.round} / {summary.matchup.blue || 'Blue'} VS {summary.matchup.red || 'Red'}</div><strong>{summary.matchup.blue || 'Blue'} vs {summary.matchup.red || 'Red'}</strong></div><span className="previous-round-round">ROUND {summary.round}</span></div><div className="round-battle-card"><div className="round-side round-side-blue"><div className="round-player-name">{summary.matchup.blue || 'Blue'}</div><div className="round-hero-row">{blueBans.map((hero) => <RoundHero key={`blue-ban-${hero.name}`} hero={hero} banned />)}{bluePicks.map(({ hero, protected: protectedSlot }) => <RoundHero key={`blue-pick-${hero.name}`} hero={hero} protectedSlot={protectedSlot} />)}</div><div className="round-extra-row">{bluePostBan && <RoundHero hero={bluePostBan} postBan />}</div></div><div className="round-versus">VS<span>R{summary.round}</span></div><div className="round-side round-side-red"><div className="round-player-name">{summary.matchup.red || 'Red'}</div><div className="round-hero-row">{redPicks.map(({ hero, protected: protectedSlot }) => <RoundHero key={`red-pick-${hero.name}`} hero={hero} protectedSlot={protectedSlot} />)}{redBans.map((hero) => <RoundHero key={`red-ban-${hero.name}`} hero={hero} banned />)}</div><div className="round-extra-row">{redPostBan && <RoundHero hero={redPostBan} postBan />}</div></div></div></section>
+  return <section className="previous-round-picks" data-round={summary.round}>
+    <div className="previous-round-heading"><div><div className="eyebrow">ROUND {summary.round}</div><strong>{summary.matchup.blue || 'Blue'} vs {summary.matchup.red || 'Red'}</strong></div><span className="previous-round-round">{summary.round === 15 ? 'KHÔNG PROTECTION' : 'SLOT 3 PROTECTED'}</span></div>
+    <div className="history-teams">{(['blue', 'red'] as const).map((side) => {
+      const picks = summary.picks.filter((pick) => pick.side === side)
+      const preBans = side === 'blue' ? summary.preBans.slice(0, banHalf) : summary.preBans.slice(banHalf)
+      const removedHero = summary.postBans.find((ban) => ban.side !== side)?.hero
+      return <div className={`history-team ${side}`} key={side}>
+        <h3>{summary.matchup[side] || (side === 'blue' ? 'Blue Side' : 'Red Side')}</h3>
+        <div className="history-group history-picks"><h4>PICK <span>Hero đã chọn</span></h4><div className="history-heroes">{picks.map(({ hero, protected: protectedSlot }) => <HistoryHero key={hero.name} hero={hero} protectedSlot={protectedSlot} banned={removedHero?.name === hero.name} usedRound={summary.round} gameNumber={gameNumber} />)}</div></div>
+        <div className="history-group history-bans"><h4>BAN <span>Hero bị đối thủ loại</span></h4><div className="history-heroes">{removedHero ? <HistoryHero hero={removedHero} banned /> : <p>Chưa có hero bị ban.</p>}</div></div>
+        <div className="history-group history-prebans"><h4>PREBAN <span>Hero cấm trước</span></h4><div className="history-heroes">{preBans.map((hero) => <HistoryHero key={hero.name} hero={hero} banned />)}</div></div>
+      </div>
+    })}</div>
+  </section>
 }
 
-function RoundHero({ hero, banned = false, protectedSlot = false, postBan = false }: { hero: Hero; banned?: boolean; protectedSlot?: boolean; postBan?: boolean }) {
-  return <div className={`round-hero ${banned ? 'round-hero-banned' : ''} ${protectedSlot ? 'round-hero-protected' : ''} ${postBan ? 'round-hero-postban' : ''}`} title={hero.name}><HeroPortrait hero={hero} variant="s" />{banned && <span className="round-ban-mark">×</span>}{protectedSlot && <Icon src="_cm_safeguard_glow.png" label="Protected pick" />}</div>
+function HistoryHero({ hero, banned = false, protectedSlot = false, usedRound, gameNumber = 1 }: { hero: Hero; banned?: boolean; protectedSlot?: boolean; usedRound?: number; gameNumber?: number }) {
+  const availableRound = usedRound ? pickAvailabilityRound(usedRound) : null
+  const cooling = availableRound !== null && gameNumber < availableRound
+  return <div className={`history-hero ${cooling ? 'on-cooldown' : ''}`} data-hero={hero.name}>
+    <div className={`round-hero ${banned ? 'round-hero-banned' : ''} ${protectedSlot ? 'round-hero-protected' : ''}`} title={hero.name}><HeroPortrait hero={hero} />{banned && <span className="round-ban-mark">×</span>}{protectedSlot && <Icon src="_cm_safeguard_glow.png" label="Protected pick" />}</div>
+    <strong>{hero.name}</strong>
+    {usedRound && <span className="history-availability">Đã dùng R{usedRound}<br />{cooling ? 'Dùng lại' : 'Đã mở từ'} R{availableRound}</span>}
+  </div>
 }
 
-function HeroCard({ hero, currentTurn, draft, unavailableNames, onChoose }: { hero: Hero; currentTurn?: Turn; draft: DraftState; unavailableNames: Set<string>; onChoose: (hero: Hero) => void }) {
+function HeroCard({ hero, currentTurn, draft, unavailableNames, onChoose, gameNumber, cooldown }: { hero: Hero; currentTurn?: Turn; draft: DraftState; unavailableNames: Set<string>; onChoose: (hero: Hero) => void; gameNumber: number; cooldown?: HeroCooldown }) {
   const spectator = useContext(SpectatorContext)
   const opponent = currentTurn?.side === 'blue' ? 'red' : 'blue'
-  const postBanTarget = currentTurn?.phase === 'postban' && draft.picks[opponent].some((pick, index) => pick?.name === hero.name && index !== 2)
-  const protectedHero = currentTurn?.phase === 'postban' && draft.picks[opponent][2]?.name === hero.name
+  const postBanTarget = currentTurn?.phase === 'postban' && canPostBanHero(draft, currentTurn.side, hero.name, gameNumber)
+  const protectedHero = currentTurn?.phase === 'postban' && isProtectedPick(gameNumber, 2) && draft.picks[opponent][2]?.name === hero.name
   const bannedHero = [...draft.preBan.blue, ...draft.preBan.red].some((ban) => ban?.name === hero.name)
   const pickedHero = [...draft.picks.blue, ...draft.picks.red].some((pick) => pick?.name === hero.name)
   const postBanHero = draft.postBan.blue?.name === hero.name || draft.postBan.red?.name === hero.name
   const disabled = currentTurn?.phase === 'postban' ? (!postBanHero && (!postBanTarget || protectedHero)) : bannedHero || pickedHero ? false : unavailableNames.has(hero.name)
   const selectableHero = currentTurn?.phase === 'postban' ? Boolean(postBanTarget && !protectedHero) : !disabled && !bannedHero && !pickedHero && !postBanHero
-  return <button type="button" disabled={spectator || !currentTurn || disabled} title={hero.name} className={`hero-tile ${selectableHero ? 'pickable' : ''} ${bannedHero ? 'banned' : ''} ${disabled && currentTurn?.phase !== 'postban' ? 'chosen' : ''} ${pickedHero || postBanHero ? 'selected' : ''} ${protectedHero ? 'protected' : ''}`} onClick={() => onChoose(hero)}><HeroPortrait hero={hero} /><span className="hero-info"><b>{hero.name}</b><small>{roleIcons[hero.role] && <Icon src={roleIcons[hero.role]} label={hero.role} />} {elementIcons[hero.element] && <Icon src={elementIcons[hero.element]} label={hero.element} />}</small></span>{protectedHero ? <em>PROTECTED</em> : disabled && currentTurn?.phase !== 'postban' && <em>✓</em>}</button>
+  return <button type="button" disabled={spectator || !currentTurn || disabled} title={cooldown ? `${hero.name} · Đã dùng round ${cooldown.usedRound} · Dùng lại round ${cooldown.availableRound}` : hero.name} className={`hero-tile ${cooldown ? 'cooling-down' : ''} ${selectableHero ? 'pickable' : ''} ${bannedHero ? 'banned' : ''} ${disabled && currentTurn?.phase !== 'postban' ? 'chosen' : ''} ${pickedHero || postBanHero ? 'selected' : ''} ${protectedHero ? 'protected' : ''}`} onClick={() => onChoose(hero)}><HeroPortrait hero={hero} /><span className="hero-info"><b>{hero.name}</b><small>{roleIcons[hero.role] && <Icon src={roleIcons[hero.role]} label={hero.role} />} {elementIcons[hero.element] && <Icon src={elementIcons[hero.element]} label={hero.element} />}</small>{cooldown && <span className="hero-cooldown-note">Đã dùng R{cooldown.usedRound}<br />Dùng lại R{cooldown.availableRound}</span>}</span>{protectedHero ? <em>PROTECTED</em> : cooldown ? <em>CD</em> : disabled && currentTurn?.phase !== 'postban' && <em>✓</em>}</button>
 }
 
 function BanStrip({ draft, banHistory, activeTurn, onSlot, firstPickSide }: { draft: DraftState; banHistory: Hero[]; activeTurn?: Turn; onSlot: (turnIndex: number) => void; firstPickSide: Side }) {
@@ -327,10 +346,10 @@ function BanStrip({ draft, banHistory, activeTurn, onSlot, firstPickSide }: { dr
   return <div className="ban-strip"><div className="ban-strip-title"><span>PRE-BANS</span><small>{banHistory.length + bans.length} SLOTS / CENTRAL LOCKOUT</small></div><div className="ban-slots">{banHistory.map((hero, index) => <button type="button" className="draft-slot ban filled locked-ban" key={`history-ban-${index}`} disabled><HeroPortrait hero={hero} variant="s" /><b>{hero.name}</b></button>)}{bans.map(({ side, hero, index }) => { const turnIndex = turns.findIndex((turn) => turn.phase === 'preban' && turn.side === side && turn.index === index); return <Slot key={`${side}-${index}`} type="ban" hero={hero} active={activeTurn?.phase === 'preban' && activeTurn.side === side && activeTurn.index === index} onSlot={() => onSlot(turnIndex)} /> })}</div></div>
 }
 
-function DraftTeam({ name, accent, slots, side, activeTurnIndexes, onSlot, firstPickSide }: { name: string; accent: Side; slots: DraftState; side: Side; activeTurnIndexes: number[]; onSlot: (turnIndex: number, hero?: Hero) => void; firstPickSide: Side }) {
+function DraftTeam({ name, accent, slots, side, activeTurnIndexes, onSlot, firstPickSide, gameNumber }: { name: string; accent: Side; slots: DraftState; side: Side; activeTurnIndexes: number[]; onSlot: (turnIndex: number, hero?: Hero) => void; firstPickSide: Side; gameNumber: number }) {
   const turns = createTurns(slots.preBan[side].length, firstPickSide)
   const findTurn = (phase: Phase, index: number) => turns.findIndex((turn) => turn.phase === phase && turn.side === side && turn.index === index)
-  return <div className={`team-panel ${accent}`}><div className="team-title"><span className="team-badge">{accent === 'blue' ? '◆' : '◇'}</span><div><b>{name}</b><small>{firstPickSide === accent ? 'FIRST PICK' : 'SECOND PICK'}</small></div><strong>{accent === 'blue' ? '1,482' : '1,507'} <small>MMR</small></strong></div><div className="slot-group picks"><label>PICKS <span>5 slots / SLOT 3 PROTECTED</span></label><div className="slots picks-five">{slots.picks[side].map((hero, index) => { const turnIndex = findTurn('pick', index); return <Slot key={`pick-${index}`} type="pick" hero={hero} protectedSlot={index === 2} active={activeTurnIndexes.includes(turnIndex)} onSlot={() => onSlot(turnIndex, hero ?? undefined)} /> })}</div></div><div className="postban-line"><span>POST-BAN</span><Slot type="postban" hero={slots.postBan[side]} active={activeTurnIndexes.includes(findTurn('postban', 0))} onSlot={() => onSlot(findTurn('postban', 0))} /></div></div>
+  return <div className={`team-panel ${accent}`}><div className="team-title"><span className="team-badge">{accent === 'blue' ? '◆' : '◇'}</span><div><b>{name}</b><small>{firstPickSide === accent ? 'FIRST PICK' : 'SECOND PICK'}</small></div><strong>{accent === 'blue' ? '1,482' : '1,507'} <small>MMR</small></strong></div><div className="slot-group picks"><label>PICKS <span>5 slots / {gameNumber === 15 ? 'NO PROTECTION' : 'SLOT 3 PROTECTED'}</span></label><div className="slots picks-five">{slots.picks[side].map((hero, index) => { const turnIndex = findTurn('pick', index); return <Slot key={`pick-${index}`} type="pick" hero={hero} protectedSlot={isProtectedPick(gameNumber, index)} active={activeTurnIndexes.includes(turnIndex)} onSlot={() => onSlot(turnIndex, hero ?? undefined)} /> })}</div></div><div className="postban-line"><span>POST-BAN</span><Slot type="postban" hero={slots.postBan[side]} active={activeTurnIndexes.includes(findTurn('postban', 0))} onSlot={() => onSlot(findTurn('postban', 0))} /></div></div>
 }
 
 function Slot({ type, hero, active, protectedSlot, onSlot }: { type: 'ban' | 'pick' | 'postban'; hero: Hero | null; active: boolean; protectedSlot?: boolean; onSlot: () => void }) {

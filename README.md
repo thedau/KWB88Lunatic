@@ -29,7 +29,11 @@ Live dùng WebRTC qua [PeerJS](https://peerjs.com/client/getting-started) và m�
 
 ## Giao diện
 
-- Chỉ có thể thức Lunatic, mỗi bên 2 preban mỗi round (tổng 4 preban) và 5 pick, slot thứ 3 được bảo vệ.
+- Chỉ có thể thức Lunatic, mỗi bên 2 preban mỗi round (tổng 4 preban) và 5 pick.
+- Hero pick ở round 1–6 nghỉ 1 round: R1 → R3, R2 → R4, R6 → R8. Hero pick từ round 7 nghỉ 2 round: R7 → R10, R8 → R11. Cooldown tính theo round đã pick và tiếp tục qua các cặp BO3; không kéo dài ngược cooldown của các lượt pick trước round 7.
+- Slot thứ 3 được bảo vệ ở round 1–14. Round 15 không có protection; có thể postban cả 5 hero của đối thủ bằng cách bấm slot hoặc chọn trong roster.
+- Roster và bảng cooldown ghi rõ round đã sử dụng và round được dùng lại. Khi cooldown kết thúc, hero vẫn có thể bị khóa bởi preban.
+- Lịch sử chia từng bên với ba nhóm Pick, Ban (hero bị đối thủ loại) và Preban ở các hàng riêng. Lịch sử round hiện tại xuất hiện sau khi ghi nhận người thắng, kể cả round 15.
 - Preban dùng nền, viền và highlight đỏ; tên hero luôn hiển thị.
 - Chữ lớn hơn, độ tương phản cao hơn, tên hero xuống dòng trên màn hình nhỏ.
 - Đồng hồ hiển thị thời gian thực từ lúc bắt đầu round, reset khi chuyển round.
