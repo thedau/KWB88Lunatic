@@ -282,7 +282,7 @@ function App() {
           <DraftTeam name={currentMatchup.red || 'RED SIDE'} accent="red" slots={draft} side="red" activeTurnIndexes={activeTurnIndexes} onSlot={selectSlot} firstPickSide={firstPickSide} gameNumber={gameNumber} />
         </div>
       </section>
-      {visibleRoundSummaries.length > 0 && <div className="previous-round-history">{visibleRoundSummaries.map((summary) => <PreviousRoundSummary key={`${summary.round}-${summary.matchup.blue}-${summary.matchup.red}`} summary={summary} gameNumber={gameNumber} />)}</div>}
+      {visibleRoundSummaries.length > 0 && <div className="previous-round-history">{visibleRoundSummaries.map((summary) => <PreviousRoundSummary key={`${summary.round}-${summary.matchup.blue}-${summary.matchup.red}`} summary={summary} />)}</div>}
       <footer><span>EPIC SEVEN / 5 PAIRS / BO3 / 5v5</span><span><b className="footer-dot" /> {persistentBans.length} LOCKED HEROES</span></footer>
     </main></SpectatorContext>
   )
@@ -294,7 +294,7 @@ function MatchupResult({ matchup, score, index }: { matchup: Matchup; score: Mat
   return <span className="matchup-result">PAIR {index + 1}: {score.blue > score.red ? <strong className="pair-winner">{blueName}</strong> : blueName} vs {score.red > score.blue ? <strong className="pair-winner">{redName}</strong> : redName} / {score.blue} - {score.red}</span>
 }
 
-function PreviousRoundSummary({ summary, gameNumber }: { summary: RoundSummary; gameNumber: number }) {
+function PreviousRoundSummary({ summary }: { summary: RoundSummary }) {
   const banHalf = Math.ceil(summary.preBans.length / 2)
   return <section className="previous-round-picks" data-round={summary.round}>
     <div className="previous-round-heading"><div><div className="eyebrow">ROUND {summary.round}</div><strong>{summary.matchup.blue || 'Blue'} vs {summary.matchup.red || 'Red'}</strong></div><span className="previous-round-round">{summary.round === 15 ? 'KHÔNG PROTECTION' : 'SLOT 3 PROTECTED'}</span></div>
@@ -304,21 +304,17 @@ function PreviousRoundSummary({ summary, gameNumber }: { summary: RoundSummary; 
       const removedHero = summary.postBans.find((ban) => ban.side !== side)?.hero
       return <div className={`history-team ${side}`} key={side}>
         <h3>{summary.matchup[side] || (side === 'blue' ? 'Blue Side' : 'Red Side')}</h3>
-        <div className="history-group history-picks"><h4>PICK <span>Hero đã chọn</span></h4><div className="history-heroes">{picks.map(({ hero, protected: protectedSlot }) => <HistoryHero key={hero.name} hero={hero} protectedSlot={protectedSlot} banned={removedHero?.name === hero.name} usedRound={summary.round} gameNumber={gameNumber} />)}</div></div>
-        <div className="history-group history-bans"><h4>BAN <span>Hero bị đối thủ loại</span></h4><div className="history-heroes">{removedHero ? <HistoryHero hero={removedHero} banned /> : <p>Chưa có hero bị ban.</p>}</div></div>
+        <div className="history-group history-picks"><h4>PICK <span>Hero đã chọn</span></h4><div className="history-heroes">{picks.map(({ hero, protected: protectedSlot }) => <HistoryHero key={hero.name} hero={hero} protectedSlot={protectedSlot} banned={removedHero?.name === hero.name} />)}</div></div>
         <div className="history-group history-prebans"><h4>PREBAN <span>Hero cấm trước</span></h4><div className="history-heroes">{preBans.map((hero) => <HistoryHero key={hero.name} hero={hero} banned />)}</div></div>
       </div>
     })}</div>
   </section>
 }
 
-function HistoryHero({ hero, banned = false, protectedSlot = false, usedRound, gameNumber = 1 }: { hero: Hero; banned?: boolean; protectedSlot?: boolean; usedRound?: number; gameNumber?: number }) {
-  const availableRound = usedRound ? pickAvailabilityRound(usedRound) : null
-  const cooling = availableRound !== null && gameNumber < availableRound
-  return <div className={`history-hero ${cooling ? 'on-cooldown' : ''}`} data-hero={hero.name}>
+function HistoryHero({ hero, banned = false, protectedSlot = false }: { hero: Hero; banned?: boolean; protectedSlot?: boolean }) {
+  return <div className="history-hero" data-hero={hero.name}>
     <div className={`round-hero ${banned ? 'round-hero-banned' : ''} ${protectedSlot ? 'round-hero-protected' : ''}`} title={hero.name}><HeroPortrait hero={hero} />{banned && <span className="round-ban-mark">×</span>}{protectedSlot && <Icon src="_cm_safeguard_glow.png" label="Protected pick" />}</div>
     <strong>{hero.name}</strong>
-    {usedRound && <span className="history-availability">Đã dùng R{usedRound}<br />{cooling ? 'Dùng lại' : 'Đã mở từ'} R{availableRound}</span>}
   </div>
 }
 
