@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { DraftSnapshot, DraftState, Hero, MatchScore, Matchup, MatchupHistoryEntry, Phase, Role, RoundSummary, Side, Turn } from './draft'
+import { PRE_BANS_PER_SIDE } from './draft'
 import { useLiveRoom } from './useLiveRoom'
 import { LiveRoomPanel, RoundTimer } from './LiveRoomPanel'
 import './App.css'
@@ -71,7 +72,7 @@ function App() {
   const [element, setElement] = useState('All')
   const [query, setQuery] = useState('')
   const [heroes, setHeroes] = useState<Hero[]>(starterHeroes)
-  const [draft, setDraft] = useState<DraftState>(() => createDraft(1))
+  const [draft, setDraft] = useState<DraftState>(() => createDraft(PRE_BANS_PER_SIDE))
   const [activeTurn, setActiveTurn] = useState(0)
   const [lockedHeroes, setLockedHeroes] = useState<string[]>([])
   const [persistentBans, setPersistentBans] = useState<string[]>([])
@@ -103,7 +104,7 @@ function App() {
     setStartedAt(state.startedAt)
   }, [])
   const live = useLiveRoom(snapshot, applySnapshot)
-  const preBanCount = 1
+  const preBanCount = PRE_BANS_PER_SIDE
   const turns = useMemo(() => createTurns(preBanCount, firstPickSide), [preBanCount, firstPickSide])
   const currentTurn = turns[activeTurn]
   const activeTurnIndexes = useMemo(() => {

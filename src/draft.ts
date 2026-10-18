@@ -1,4 +1,6 @@
 export type Side = 'blue' | 'red'
+export const PRE_BANS_PER_SIDE = 2
+export const DRAFT_TURN_COUNT = PRE_BANS_PER_SIDE * 2 + 10 + 2
 export type Phase = 'preban' | 'pick' | 'postban'
 export type Role = 'All' | 'Knight' | 'Soul Weaver' | 'Mage' | 'Ranger' | 'Thief' | 'Warrior'
 export type Hero = { name: string; short: string; role: Exclude<Role, 'All'>; element: string; tone: string; id?: string }
@@ -38,20 +40,20 @@ const nullableHero = (value: unknown) => value === null || hero(value)
 const matchup = (value: unknown) => record(value) && typeof value.blue === 'string' && typeof value.red === 'string'
 const score = (value: unknown) => record(value) && integer(value.blue, 0, 2) && integer(value.red, 0, 2)
 const heroSide = (value: unknown) => record(value) && hero(value.hero) && side(value.side)
-const round = (value: unknown) => record(value) && matchup(value.matchup) && integer(value.round, 1, 15) && list(value.preBans, hero, 2) && list(value.picks, (pick) => heroSide(pick) && record(pick) && typeof pick.protected === 'boolean', 10) && list(value.postBans, heroSide, 2)
+const round = (value: unknown) => record(value) && matchup(value.matchup) && integer(value.round, 1, 15) && list(value.preBans, hero, PRE_BANS_PER_SIDE * 2) && list(value.picks, (pick) => heroSide(pick) && record(pick) && typeof pick.protected === 'boolean', 10) && list(value.postBans, heroSide, 2)
 
 // Validate messages before the spectator renders any remote state.
 export function isDraftSnapshot(value: unknown): value is DraftSnapshot {
   if (!record(value) || !record(value.draft)) return false
   const draft = value.draft
-  return integer(value.gameNumber, 1, 15) && integer(value.pairIndex, 0, 4) && integer(value.activeTurn, 0, 14)
+  return integer(value.gameNumber, 1, 15) && integer(value.pairIndex, 0, 4) && integer(value.activeTurn, 0, DRAFT_TURN_COUNT)
     && side(value.firstPickSide) && nullableSide(value.roundWinner) && nullableSide(value.nextFirstPickSide)
     && typeof value.startedAt === 'number' && Number.isFinite(value.startedAt) && value.startedAt > 0
     && record(draft.preBan) && record(draft.picks) && record(draft.postBan)
     && (['blue', 'red'] as const).every((key) => {
       const bans = (draft.preBan as Record<string, unknown>)[key]
       const picks = (draft.picks as Record<string, unknown>)[key]
-      return Array.isArray(bans) && bans.length === 1 && bans.every(nullableHero)
+      return Array.isArray(bans) && bans.length === PRE_BANS_PER_SIDE && bans.every(nullableHero)
         && Array.isArray(picks) && picks.length === 5 && picks.every(nullableHero)
         && nullableHero((draft.postBan as Record<string, unknown>)[key])
     })

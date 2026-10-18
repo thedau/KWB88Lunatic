@@ -29,7 +29,7 @@ Live dùng WebRTC qua [PeerJS](https://peerjs.com/client/getting-started) và m�
 
 ## Giao diện
 
-- Chỉ có thể thức Lunatic, mỗi bên 1 preban và 5 pick, slot thứ 3 được bảo vệ.
+- Chỉ có thể thức Lunatic, mỗi bên 2 preban mỗi round (tổng 4 preban) và 5 pick, slot thứ 3 được bảo vệ.
 - Preban dùng nền, viền và highlight đỏ; tên hero luôn hiển thị.
 - Chữ lớn hơn, độ tương phản cao hơn, tên hero xuống dòng trên màn hình nhỏ.
 - Đồng hồ hiển thị thời gian thực từ lúc bắt đầu round, reset khi chuyển round.
